@@ -107,10 +107,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             UK_LBRC,    UK_LABK,    UK_MINS,    UK_RABK,    UK_RBRC,            UK_CIRC,    UK_QUES,    UK_GRV,    UK_DQUO,    UK_QUOT,
             UK_LCBR,    UK_LPRN,    UK_EQL,     UK_RPRN,    UK_RCBR,            UK_PERC,    UK_DLR,     UK_HASH,   UK_AT,      UK_EXLM,
             UK_BSLS,    UK_ASTR,    UK_COLN,    UK_PLUS,    UK_UNDS,            UK_AMPR,    UK_TILD,    UK_SCLN,   UK_PIPE,    UK_PND,
-                                    FKEYS,      KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_BSPC),
+                                    FKEYS,      KC_TRNS,    FKEYS,              KC_TRNS,    KC_BSPC),
 
 	[_FUNCTION] = LAYOUT(
-            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_F10,     KC_F7,      KC_F8,      KC_F9,      KC_PSCR,
+            KC_F13,     KC_F14,     KC_F15,     KC_F16,     KC_F17,             KC_F10,     KC_F7,      KC_F8,      KC_F9,      KC_PSCR,
             OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   OTHER,              KC_F11,     KC_F4,      KC_F5,      KC_F6,      KC_INS,
             OSM_RCTL,   OSM_RGUI,   OSM_RALT,   OSM_RSFT,   KC_TRNS,            KC_F12,     KC_F1,      KC_F2,      KC_F3,      KC_TRNS,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
