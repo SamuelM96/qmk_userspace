@@ -121,9 +121,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,              KC_NO,      KC_MUTE,    KC_NO,      KC_NO,      KC_NO,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 	[_OTHER] = LAYOUT(
-            KC_TRNS,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    KC_TRNS,            KC_TRNS,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    QK_BOOT,
-            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    JIGGLE,     KC_TRNS,    KC_TRNS,    KC_TRNS,
-            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    QK_MAKE,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+            QK_MAKE,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    KC_TRNS,            RGB_VAI,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    RGB_M_P,
+            QK_BOOT,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
+            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            JIGGLE,     RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_LCTL,    KC_LSFT),
 
 	[_POINTER] = LAYOUT(
