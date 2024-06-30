@@ -15,7 +15,6 @@
 // // The default is 40
 // #define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 
-
 #define MK_KINETIC_SPEED
 #define MOUSEKEY_DELAY 5
 #define MOUSEKEY_INTERVAL 10
@@ -28,6 +27,8 @@
 #define MOUSEKEY_WHEEL_BASE_MOVEMENTS 32
 #define MOUSEKEY_WHEEL_ACCELERATED_MOVEMENTS 48
 #define MOUSEKEY_WHEEL_DECELERATED_MOVEMENTS 8
+
+#define ENABLE_COMPILE_KEYCODE
 
 // Pick good defaults for enabling homerow modifiers
 #define TAPPING_TERM 200
