@@ -95,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             MACRO,      KC_TRNS,    QK_AREP,    QK_REP,     KC_ESC,             KC_TRNS,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,
             OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   KC_ENT,             KC_TAB,     KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,
             KC_CAPS,    KC_TRNS,    OSM_RALT,   CW_TOGG,    SNAKECASE,          KC_DEL,     KC_UNDO,    KC_COPY,    KC_PSTE,    KC_AGIN,
-                                    OTHER,      KC_TRNS,    KC_TRNS,            C(KC_BSPC), KC_BSPC),
+                                    OTHER,      KC_TRNS,    KC_TRNS,            MEDIA, KC_BSPC),
 
 	[_NUM] = LAYOUT(
             UK_QUOT,    UK_LBRC,    UK_RBRC,    UK_DLR,     KC_PERC,            UK_ASTR,    KC_7,       KC_8,       KC_9,       KC_MINS,
@@ -116,8 +116,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 
 	[_MEDIA] = LAYOUT(
-            KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,              KC_NO,      KC_NO,      KC_MSTP,    KC_MPLY,    KC_NO,
-            KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,              KC_NO,      KC_MPRV,    KC_VOLD,    KC_VOLU,    KC_MNXT,
+            KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,              KC_BRIU,    KC_NO,      KC_MSTP,    KC_MPLY,    KC_NO,
+            KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,              KC_BRID,    KC_MPRV,    KC_VOLD,    KC_VOLU,    KC_MNXT,
             KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,              KC_NO,      KC_MUTE,    KC_NO,      KC_NO,      KC_NO,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 	[_OTHER] = LAYOUT(
