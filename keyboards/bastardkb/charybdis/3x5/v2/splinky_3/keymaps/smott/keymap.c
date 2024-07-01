@@ -86,9 +86,9 @@ static uint16_t mouse_jiggler_timer;
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
-            UK_Q,       UK_W,       UK_E,       UK_R,       UK_T,               UK_Y,       UK_U,       UK_I,       UK_O,       UK_P,
-            UK_A,       UK_S,       UK_D,       UK_F,       UK_G,               UK_H,       UK_J,       UK_K,       UK_L,       UK_SCLN,
-            L_PTR(UK_Z),UK_X,       UK_C,       UK_V,       UK_B,               UK_N,       UK_M,       UK_COMM,    UK_DOT,     L_PTR(UK_SLSH),
+            UK_Q,       UK_W,       UK_E,       UK_R,       UK_T,               UK_Y,       UK_U,       UK_I,       UK_O,         UK_P,
+            UK_A,       UK_S,       UK_D,       UK_F,       UK_G,               UK_H,       UK_J,       UK_K,       UK_L,         UK_SCLN,
+            UK_Z,       L_PTR(UK_X),UK_C,       UK_V,       UK_B,               UK_N,       UK_M,       UK_COMM,    L_PTR(UK_DOT),UK_SLSH,
                                     KC_LCTL,    SPC_NAV,    NUM_ESC,            SYM,        KC_LSFT),
 
 	[_NAV] = LAYOUT(
@@ -129,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_POINTER] = LAYOUT(
             KC_TRNS,    KC_TRNS,    KC_TRNS,    DPI_MOD,    S_D_MOD,            S_D_MOD,    DPI_MOD,    KC_TRNS,    KC_TRNS,    KC_TRNS,
             OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   S_D_RMOD,           S_D_RMOD,   DPI_RMOD,   KC_BTN3,    SNIPING,    KC_TRNS,
-            KC_TRNS,    DRGSCRL,    KC_TRNS,    KC_TRNS,    SNP_TOG,            SNP_TOG,    KC_BTN1,    KC_BTN2,    DRGSCRL,    KC_TRNS,
+            DRGSCRL,    KC_TRNS,    KC_TRNS,    KC_TRNS,    SNP_TOG,            SNP_TOG,    KC_BTN1,    KC_BTN2,    KC_TRNS,    DRGSCRL,
                                     KC_BTN2,    KC_BTN1,    KC_BTN3,            KC_WBAK,    KC_WFWD),
 
 	[_MACRO] = LAYOUT(
