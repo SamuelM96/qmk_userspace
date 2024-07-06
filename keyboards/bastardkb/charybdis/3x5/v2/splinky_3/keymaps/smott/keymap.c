@@ -30,6 +30,7 @@
 
 enum layers {
     _QWERTY = 0,
+    _COLEMAK_DH,
     _NAV,
     _NUM,
     _SYM,
@@ -53,6 +54,7 @@ enum custom_keycodes {
 
 // Aliases for readability
 #define QWERTY DF(_QWERTY)
+#define COLEMAK_DH DF(_COLEMAK_DH)
 
 #define NAV MO(_NAV)
 #define NUM MO(_NUM)
@@ -91,6 +93,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             UK_Z,       L_PTR(UK_X),UK_C,       UK_V,       UK_B,               UK_N,       UK_M,       UK_COMM,    L_PTR(UK_DOT),UK_SLSH,
                                     KC_LCTL,    SPC_NAV,    NUM_ESC,            SYM,        KC_LSFT),
 
+    [_COLEMAK_DH] = LAYOUT(
+            UK_Q,       UK_W,       UK_F,       UK_P,       UK_B,               UK_J,       UK_L,       UK_U,       UK_Y,         UK_SCLN,
+            UK_A,       UK_R,       UK_S,       UK_T,       UK_G,               UK_M,       UK_N,       UK_E,       UK_I,         UK_O,
+            UK_Z,       L_PTR(UK_X),UK_C,       UK_D,       UK_V,               UK_K,       UK_H,       UK_COMM,    L_PTR(UK_DOT),UK_SLSH,
+                                    KC_LCTL,    SPC_NAV,    NUM_ESC,            SYM,        KC_LSFT),
+
 	[_NAV] = LAYOUT(
             MACRO,      KC_TRNS,    QK_AREP,    QK_REP,     KC_ESC,             KC_TRNS,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,
             OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   KC_ENT,             KC_TAB,     KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,
@@ -121,10 +129,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,              KC_NO,      KC_MUTE,    KC_NO,      KC_NO,      KC_NO,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 	[_OTHER] = LAYOUT(
-            QK_MAKE,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    KC_TRNS,            RGB_VAI,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    RGB_M_P,
-            QK_BOOT,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
-            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            JIGGLE,     RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
-                                    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_LCTL,    KC_LSFT),
+            QWERTY,     KC_NO,      KC_NO,      KC_NO,      KC_NO,              RGB_VAI,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    RGB_M_P,
+            QK_BOOT,    KC_NO,      KC_NO,      KC_NO,      QK_MAKE,            RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
+            KC_NO,      KC_NO,      COLEMAK_DH, KC_NO,      QK_BOOT,            JIGGLE,     RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
+                                    KC_NO,      KC_NO,      KC_NO,              KC_LCTL,    KC_LSFT),
 
 	[_POINTER] = LAYOUT(
             KC_TRNS,    KC_TRNS,    KC_TRNS,    DPI_MOD,    S_D_MOD,            S_D_MOD,    DPI_MOD,    KC_TRNS,    KC_TRNS,    KC_TRNS,
