@@ -107,10 +107,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_LALT,    KC_SPC,     LT(OTHER, UK_B),    UK_T,       UK_G),
 
 	[_NAV] = LAYOUT(
-            MACRO,      KC_TRNS,    QK_AREP,    QK_REP,     KC_ESC,             KC_TRNS,    KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,
-            OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   KC_ENT,             KC_TAB,     KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,
-            KC_CAPS,    KC_TRNS,    OSM_RALT,   CW_TOGG,    SNAKECASE,          KC_DEL,     KC_UNDO,    KC_COPY,    KC_PSTE,    KC_AGIN,
-                                    OTHER,      KC_TRNS,    KC_TRNS,            MEDIA, KC_BSPC),
+            MACRO,      KC_TRNS,    QK_AREP,    QK_REP,     KC_ESC,             G(S(KC_PSCR)),KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,
+            OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   KC_ENT,             KC_TAB,       KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,
+            KC_CAPS,    KC_TRNS,    OSM_RALT,   CW_TOGG,    SNAKECASE,          KC_DEL,       KC_UNDO,    KC_COPY,    KC_PSTE,    KC_AGIN,
+                                    OTHER,      KC_TRNS,    KC_TRNS,            MEDIA,        KC_BSPC),
 
 	[_NUM] = LAYOUT(
             UK_QUOT,    UK_LBRC,    UK_RBRC,    UK_DLR,     KC_PERC,            UK_ASTR,    KC_7,       KC_8,       KC_9,       KC_MINS,
@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 	[_OTHER] = LAYOUT(
             QWERTY,     KC_NO,      KC_NO,      KC_NO,      KC_ESC,             RGB_VAI,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    RGB_M_P,
-            QK_BOOT,    KC_NO,      KC_NO,      KC_NO,      KC_ENT,             RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
+            QK_MAKE,    KC_NO,      KC_NO,      KC_NO,      KC_ENT,             RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
             QK_BOOT,    QK_MAKE,    COLEMAK_DH, KC_NO,      KC_NO,              TG(_GAME),  RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
                                     KC_NO,      KC_NO,      KC_NO,              KC_LCTL,    KC_LSFT),
 
