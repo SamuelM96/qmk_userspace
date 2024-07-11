@@ -113,9 +113,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     OTHER,      KC_TRNS,    KC_TRNS,            MEDIA,        KC_BSPC),
 
 	[_NUM] = LAYOUT(
-            UK_QUOT,    UK_LBRC,    UK_RBRC,    UK_DLR,     KC_PERC,            UK_ASTR,    KC_7,       KC_8,       KC_9,       KC_MINS,
-            OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   UK_HASH,            UK_SLSH,    KC_4,       KC_5,       KC_6,       UK_PLUS,
-            UK_BSLS,    UK_LCBR,    UK_RCBR,    UK_EXLM,    UK_PIPE,            UK_EQL,     KC_1,       KC_2,       KC_3,       UK_DOT,
+            UK_LBRC,    UK_LABK,    UK_MINS,    UK_RABK,    UK_RBRC,            UK_ASTR,    KC_7,       KC_8,       KC_9,       KC_MINS,
+            OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   UK_RCBR,            UK_SLSH,    KC_4,       KC_5,       KC_6,       UK_PLUS,
+            UK_BSLS,    UK_ASTR,    UK_COLN,    UK_PLUS,    UK_UNDS,            UK_EQL,     KC_1,       KC_2,       KC_3,       UK_DOT,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            UK_0,       KC_BSPC),
 
 	[_SYM] = LAYOUT(
