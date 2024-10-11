@@ -28,6 +28,18 @@
 #    include "timer.h"
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
+#ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
+static uint16_t auto_pointer_layer_timer = 0;
+
+#    ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
+#        define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS 1000
+#    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS
+
+#    ifndef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
+#        define CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD 0
+#    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD
+#endif     // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
+
 enum layers {
     _QWERTY = 0,
     _COLEMAK_DH,
@@ -41,6 +53,8 @@ enum layers {
     _POINTER,
     _MACRO,
 };
+
+/* #define CHARYBDIS_AUTO_SNIPING_ON_LAYER _POINTER */
 
 enum custom_keycodes {
     SNAKECASE = SAFE_RANGE,
@@ -72,6 +86,11 @@ enum custom_keycodes {
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
 #define ALT_ENT MT(MOD_LALT, KC_ENT)
+// TODO: Needs Colemak DH support. KC_TRNS didn't work
+#define CTL_TRNS MT(MOD_LCTL, KC_A)
+#define GUI_TRNS MT(MOD_LGUI, KC_S)
+#define ALT_TRNS MT(MOD_LALT, KC_D)
+#define SFT_TRNS MT(MOD_LSFT, KC_F)
 
 #define OSM_LGUI OSM(MOD_LGUI)
 #define OSM_LCTL OSM(MOD_LCTL)
@@ -91,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
             UK_Q,       UK_W,       UK_E,       UK_R,       UK_T,               UK_Y,       UK_U,       UK_I,       UK_O,         UK_P,
             UK_A,       UK_S,       UK_D,       UK_F,       UK_G,               UK_H,       UK_J,       UK_K,       UK_L,         UK_SCLN,
-            UK_Z,       L_PTR(UK_X),UK_C,       UK_V,       UK_B,               UK_N,       UK_M,       UK_COMM,    L_PTR(UK_DOT),UK_SLSH,
+            L_PTR(UK_Z),UK_X,       UK_C,       UK_V,       UK_B,               UK_N,       UK_M,       UK_COMM,    UK_DOT,  L_PTR(UK_SLSH),
                                     KC_LCTL,    SPC_NAV,    NUM_ESC,            SYM,        KC_LSFT),
 
     [_COLEMAK_DH] = LAYOUT(
@@ -142,10 +161,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     KC_NO,      KC_NO,      KC_NO,              KC_LCTL,    KC_LSFT),
 
 	[_POINTER] = LAYOUT(
-            KC_TRNS,    KC_TRNS,    KC_TRNS,    DPI_MOD,    S_D_MOD,            S_D_MOD,    DPI_MOD,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-            OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   S_D_RMOD,           S_D_RMOD,   DPI_RMOD,   KC_BTN3,    SNIPING,    KC_TRNS,
-            DRGSCRL,    KC_TRNS,    KC_TRNS,    KC_TRNS,    SNP_TOG,            SNP_TOG,    KC_BTN1,    KC_BTN2,    KC_TRNS,    DRGSCRL,
-                                    KC_BTN2,    KC_BTN1,    KC_BTN3,            KC_WBAK,    KC_WFWD),
+            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+            CTL_TRNS,   GUI_TRNS,   ALT_TRNS,   SFT_TRNS,   KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_BTN3,    SNIPING,    KC_TRNS,
+            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_BTN1,    KC_BTN2,    DRGSCRL,    KC_TRNS,
+                                    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_WBAK,    KC_WFWD),
 
 	[_MACRO] = LAYOUT(
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
@@ -182,6 +201,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         return false;
     }
 
+#ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
+    // Turn off pointer layer if keys on other layers are pressed.
+    // Helps with typing soon after using the trackball.
+    if (record->event.pressed) {
+        uint8_t current_layer = get_highest_layer(layer_state);
+        if (current_layer == _POINTER) {
+            uint16_t pointer_keycode = keymap_key_to_keycode(_POINTER, record->event.key);
+            if (pointer_keycode == KC_TRNS || pointer_keycode == KC_NO) {
+                layer_off(_POINTER);
+            } else {
+                auto_pointer_layer_timer = timer_read();
+            }
+        }
+    }
+#endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
+
     switch (keycode) {
         case SNAKECASE:
             if (record->event.pressed) {
@@ -197,3 +232,38 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             return true;
     }
 }
+
+#ifdef POINTING_DEVICE_ENABLE
+#    ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
+report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
+    if (abs(mouse_report.x) > CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD || abs(mouse_report.y) > CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_THRESHOLD) {
+        if (auto_pointer_layer_timer == 0) {
+            layer_on(_POINTER);
+#        ifdef RGB_MATRIX_ENABLE
+            rgb_matrix_mode_noeeprom(RGB_MATRIX_NONE);
+            rgb_matrix_sethsv_noeeprom(RGB_MATRIX_DEFAULT_HUE, RGB_MATRIX_DEFAULT_SAT, 200);
+#        endif // RGB_MATRIX_ENABLE
+        }
+        auto_pointer_layer_timer = timer_read();
+    }
+    return mouse_report;
+}
+
+void matrix_scan_user(void) {
+    if (auto_pointer_layer_timer != 0 && TIMER_DIFF_16(timer_read(), auto_pointer_layer_timer) >= CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS) {
+        auto_pointer_layer_timer = 0;
+        layer_off(_POINTER);
+#        ifdef RGB_MATRIX_ENABLE
+        rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
+#        endif // RGB_MATRIX_ENABLE
+    }
+}
+#    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
+
+#    ifdef CHARYBDIS_AUTO_SNIPING_ON_LAYER
+layer_state_t layer_state_set_user(layer_state_t state) {
+    charybdis_set_pointer_sniping_enabled(layer_state_cmp(state, CHARYBDIS_AUTO_SNIPING_ON_LAYER));
+    return state;
+}
+#    endif // CHARYBDIS_AUTO_SNIPING_ON_LAYER
+#endif     // POINTING_DEVICE_ENABLE
