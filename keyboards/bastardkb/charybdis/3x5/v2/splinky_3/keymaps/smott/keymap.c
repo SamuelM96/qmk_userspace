@@ -217,6 +217,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
             uint16_t pointer_keycode = keymap_key_to_keycode(_POINTER, record->event.key);
             if (pointer_keycode == KC_TRNS || pointer_keycode == KC_NO) {
                 layer_off(_POINTER);
+#    ifdef RGB_MATRIX_ENABLE
+                rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
+#    endif // RGB_MATRIX_ENABLE
             } else {
                 auto_pointer_layer_timer = timer_read();
             }
