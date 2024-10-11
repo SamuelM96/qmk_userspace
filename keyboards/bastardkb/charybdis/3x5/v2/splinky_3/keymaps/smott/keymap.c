@@ -51,6 +51,7 @@ enum layers {
     _MEDIA,
     _OTHER,
     _POINTER,
+    _WEB,
     _MACRO,
 };
 
@@ -77,7 +78,7 @@ enum custom_keycodes {
 #define FKEYS MO(_FUNCTION)
 #define MEDIA MO(_MEDIA)
 #define OTHER MO(_OTHER)
-#define L_PTR(KC) LT(_POINTER, KC)
+#define L_WEB(KC) LT(_WEB, KC)
 #define MACRO MO(_MACRO)
 
 #define SPC_NAV LT(_NAV, KC_SPC)
@@ -110,13 +111,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
             UK_Q,       UK_W,       UK_E,       UK_R,       UK_T,               UK_Y,       UK_U,       UK_I,       UK_O,         UK_P,
             UK_A,       UK_S,       UK_D,       UK_F,       UK_G,               UK_H,       UK_J,       UK_K,       UK_L,         UK_SCLN,
-            L_PTR(UK_Z),UK_X,       UK_C,       UK_V,       UK_B,               UK_N,       UK_M,       UK_COMM,    UK_DOT,  L_PTR(UK_SLSH),
+            L_WEB(UK_Z),UK_X,       UK_C,       UK_V,       UK_B,               UK_N,       UK_M,       UK_COMM,    UK_DOT,  L_WEB(UK_SLSH),
                                     KC_LCTL,    SPC_NAV,    NUM_ESC,            SYM,        KC_LSFT),
 
     [_COLEMAK_DH] = LAYOUT(
             UK_Q,       UK_W,       UK_F,       UK_P,       UK_B,               UK_J,       UK_L,       UK_U,       UK_Y,         UK_SCLN,
             UK_A,       UK_R,       UK_S,       UK_T,       UK_G,               UK_M,       UK_N,       UK_E,       UK_I,         UK_O,
-            UK_Z,       L_PTR(UK_X),UK_C,       UK_D,       UK_V,               UK_K,       UK_H,       UK_COMM,    L_PTR(UK_DOT),UK_SLSH,
+            L_WEB(UK_Z),UK_X,       UK_C,       UK_D,       UK_V,               UK_K,       UK_H,       UK_COMM,    UK_DOT,  L_WEB(UK_SLSH),
                                     KC_LCTL,    SPC_NAV,    NUM_ESC,            SYM,        KC_LSFT),
 
     [_GAME] = LAYOUT(
@@ -164,6 +165,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
             CTL_TRNS,   GUI_TRNS,   ALT_TRNS,   SFT_TRNS,   KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_BTN3,    SNIPING,    KC_TRNS,
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_BTN1,    KC_BTN2,    DRGSCRL,    KC_TRNS,
+                                    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
+
+     [_WEB] = LAYOUT(
+            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_WSCH,    KC_WREF,    KC_WSTP,    KC_TRNS,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_WBAK,    KC_WFWD),
 
 	[_MACRO] = LAYOUT(
