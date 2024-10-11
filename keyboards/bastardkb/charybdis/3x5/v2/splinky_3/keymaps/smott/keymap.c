@@ -202,6 +202,16 @@ void mouse_jiggle_toggle(void) {
     mouse_jiggler_enabled = !mouse_jiggler_enabled;
 }
 
+#ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
+void disable_pointer_layer(void) {
+    auto_pointer_layer_timer = 0;
+    layer_off(_POINTER);
+#    ifdef RGB_MATRIX_ENABLE
+    rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
+#    endif // RGB_MATRIX_ENABLE
+}
+#endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
+
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     // Proccess case modes
     if (!process_case_modes(keycode, record)) {
@@ -215,13 +225,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
         uint8_t current_layer = get_highest_layer(layer_state);
         if (current_layer == _POINTER) {
             uint16_t pointer_keycode = keymap_key_to_keycode(_POINTER, record->event.key);
-            if (pointer_keycode == KC_TRNS || pointer_keycode == KC_NO) {
-                layer_off(_POINTER);
-#    ifdef RGB_MATRIX_ENABLE
-                rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
-#    endif // RGB_MATRIX_ENABLE
-            } else {
-                auto_pointer_layer_timer = timer_read();
+            switch (pointer_keycode) {
+                case KC_NO:
+                case KC_TRNS:
+                    disable_pointer_layer();
+                    break;
+                default:
+                    auto_pointer_layer_timer = timer_read();
+                    break;
             }
         }
     }
@@ -261,11 +272,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 
 void matrix_scan_user(void) {
     if (auto_pointer_layer_timer != 0 && TIMER_DIFF_16(timer_read(), auto_pointer_layer_timer) >= CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS) {
-        auto_pointer_layer_timer = 0;
-        layer_off(_POINTER);
-#        ifdef RGB_MATRIX_ENABLE
-        rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
-#        endif // RGB_MATRIX_ENABLE
+        disable_pointer_layer();
     }
 }
 #    endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
