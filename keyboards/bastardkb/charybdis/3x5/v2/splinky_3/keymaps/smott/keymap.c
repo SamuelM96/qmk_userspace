@@ -103,6 +103,7 @@ enum custom_keycodes {
 #define OSM_RALT OSM(MOD_RALT)
 #define OSM_RSFT OSM(MOD_RSFT)
 
+bool            pointer_key_held      = false;
 bool            mouse_jiggler_enabled = false;
 static uint16_t mouse_jiggler_timer;
 
@@ -205,6 +206,7 @@ void mouse_jiggle_toggle(void) {
 #ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 void disable_pointer_layer(void) {
     auto_pointer_layer_timer = 0;
+    pointer_key_held         = false;
     layer_off(_POINTER);
 #    ifdef RGB_MATRIX_ENABLE
     rgb_matrix_mode_noeeprom(RGB_MATRIX_DEFAULT_MODE);
@@ -222,8 +224,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
     // Turn off pointer layer if keys on other layers are pressed.
     // Helps with typing soon after using the trackball.
     if (record->event.pressed) {
-        uint8_t current_layer = get_highest_layer(layer_state);
-        if (current_layer == _POINTER) {
+        if (IS_LAYER_ON(_POINTER)) {
             uint16_t pointer_keycode = keymap_key_to_keycode(_POINTER, record->event.key);
             switch (pointer_keycode) {
                 case KC_NO:
@@ -231,9 +232,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t* record) {
                     disable_pointer_layer();
                     break;
                 default:
+                    pointer_key_held         = true;
                     auto_pointer_layer_timer = timer_read();
                     break;
             }
+        }
+    } else {
+        if (IS_LAYER_ON(_POINTER)) {
+            auto_pointer_layer_timer = timer_read();
+            pointer_key_held         = false;
         }
     }
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
@@ -271,7 +278,7 @@ report_mouse_t pointing_device_task_user(report_mouse_t mouse_report) {
 }
 
 void matrix_scan_user(void) {
-    if (auto_pointer_layer_timer != 0 && TIMER_DIFF_16(timer_read(), auto_pointer_layer_timer) >= CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS) {
+    if (!pointer_key_held && auto_pointer_layer_timer != 0 && TIMER_DIFF_16(timer_read(), auto_pointer_layer_timer) >= CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_TIMEOUT_MS) {
         disable_pointer_layer();
     }
 }
