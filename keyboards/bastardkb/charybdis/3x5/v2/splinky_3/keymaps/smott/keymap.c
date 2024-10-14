@@ -164,7 +164,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[_POINTER] = LAYOUT(
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-            CTL_TRNS,   GUI_TRNS,   ALT_TRNS,   SFT_TRNS,   KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_BTN3,    SNIPING,    KC_TRNS,
+            CTL_TRNS,   GUI_TRNS,   ALT_TRNS,   SFT_TRNS,   KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_BTN3,    KC_TRNS,    KC_TRNS,
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_BTN1,    KC_BTN2,    DRGSCRL,    KC_TRNS,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 
