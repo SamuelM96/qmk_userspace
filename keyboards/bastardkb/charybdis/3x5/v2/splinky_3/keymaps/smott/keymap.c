@@ -143,7 +143,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             UK_LBRC,    UK_LABK,    UK_MINS,    UK_RABK,    UK_RBRC,            UK_QUES,    UK_CIRC,    UK_GRV,    UK_DQUO,    UK_QUOT,
             UK_LCBR,    UK_LPRN,    UK_EQL,     UK_RPRN,    UK_RCBR,            UK_PERC,    UK_DLR,     UK_HASH,   UK_AT,      UK_EXLM,
             UK_BSLS,    UK_ASTR,    UK_COLN,    UK_PLUS,    UK_UNDS,            UK_AMPR,    UK_TILD,    UK_SCLN,   UK_PIPE,    UK_PND,
-                                    KC_TRNS,    KC_TRNS,    FKEYS,              KC_TRNS,    KC_BSPC),
+                                    KC_LCTL,    KC_LALT,    FKEYS,              KC_TRNS,    KC_BSPC),
 
 	[_FUNCTION] = LAYOUT(
             KC_F13,     KC_F14,     KC_F15,     KC_F16,     KC_F17,             KC_F10,     KC_F7,      KC_F8,      KC_F9,      KC_PSCR,
