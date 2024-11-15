@@ -108,6 +108,56 @@ bool            pointer_key_held      = false;
 bool            mouse_jiggler_enabled = false;
 static uint16_t mouse_jiggler_timer;
 
+enum combos {
+    // L/R is used to denote keyboard side, not keycodes
+    COMBO_QWERTY_LALT,
+    COMBO_QWERTY_LGUI,
+    COMBO_QWERTY_LALTGUI,
+    COMBO_QWERTY_RALT,
+    COMBO_QWERTY_RGUI,
+    COMBO_QWERTY_RALTGUI,
+
+    COMBO_SYM_LALT,
+    COMBO_SYM_LGUI,
+    COMBO_SYM_LALTGUI,
+    COMBO_SYM_RALT,
+    COMBO_SYM_RGUI,
+    COMBO_SYM_RALTGUI,
+
+    COMBO_QWERTY_LENGTH
+};
+
+const uint16_t PROGMEM fd_combo[]  = {KC_F, KC_D, COMBO_END};
+const uint16_t PROGMEM fs_combo[]  = {KC_F, KC_S, COMBO_END};
+const uint16_t PROGMEM fds_combo[] = {KC_F, KC_D, KC_S, COMBO_END};
+const uint16_t PROGMEM jk_combo[]  = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM jl_combo[]  = {KC_J, KC_L, COMBO_END};
+const uint16_t PROGMEM jkl_combo[] = {KC_J, KC_K, KC_L, COMBO_END};
+
+const uint16_t PROGMEM sym_fd_combo[]  = {UK_RPRN, UK_EQL, COMBO_END};
+const uint16_t PROGMEM sym_fs_combo[]  = {UK_RPRN, UK_LPRN, COMBO_END};
+const uint16_t PROGMEM sym_fds_combo[] = {UK_RPRN, UK_EQL, UK_LPRN, COMBO_END};
+const uint16_t PROGMEM sym_jk_combo[]  = {UK_DLR, UK_HASH, COMBO_END};
+const uint16_t PROGMEM sym_jl_combo[]  = {UK_DLR, UK_AT, COMBO_END};
+const uint16_t PROGMEM sym_jkl_combo[] = {UK_DLR, UK_HASH, UK_AT, COMBO_END};
+
+// clang-format off
+combo_t key_combos[] = {
+    [COMBO_QWERTY_LALT]    = COMBO(fd_combo, KC_LALT),
+    [COMBO_QWERTY_LGUI]    = COMBO(fs_combo, KC_LGUI),
+    [COMBO_QWERTY_LALTGUI] = COMBO(fds_combo, LALT(KC_LGUI)),
+    [COMBO_QWERTY_RALT]    = COMBO(jk_combo, KC_LALT),
+    [COMBO_QWERTY_RGUI]    = COMBO(jl_combo, KC_LGUI),
+    [COMBO_QWERTY_RALTGUI] = COMBO(fds_combo, LALT(KC_LGUI)),
+    [COMBO_SYM_LALT]    = COMBO(sym_fd_combo, KC_LALT),
+    [COMBO_SYM_LGUI]    = COMBO(sym_fs_combo, KC_LGUI),
+    [COMBO_SYM_LALTGUI] = COMBO(sym_fds_combo, LALT(KC_LGUI)),
+    [COMBO_SYM_RALT]    = COMBO(sym_jk_combo, KC_LALT),
+    [COMBO_SYM_RGUI]    = COMBO(sym_jl_combo, KC_LGUI),
+    [COMBO_SYM_RALTGUI] = COMBO(sym_fds_combo, LALT(KC_LGUI)),
+};
+// clang-format on
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
