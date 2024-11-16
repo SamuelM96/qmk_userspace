@@ -107,6 +107,7 @@ bool            pointer_key_held      = false;
 bool            mouse_jiggler_enabled = false;
 static uint16_t mouse_jiggler_timer;
 
+#define COMBO_SHOULD_TRIGGER
 enum combos {
     // L/R is used to denote keyboard side, not keycodes
     COMBO_QWERTY_LALT,
@@ -115,6 +116,13 @@ enum combos {
     COMBO_QWERTY_LALTGUI,
     COMBO_QWERTY_LALTCTL,
     COMBO_QWERTY_LALTCTLGUI,
+
+    COMBO_COLEMAK_LALT,
+    COMBO_COLEMAK_LGUI,
+    COMBO_COLEMAK_LCTL,
+    COMBO_COLEMAK_LALTGUI,
+    COMBO_COLEMAK_LALTCTL,
+    COMBO_COLEMAK_LALTCTLGUI,
 
     COMBO_SYM_LALT,
     COMBO_SYM_LGUI,
@@ -129,6 +137,13 @@ enum combos {
     COMBO_QWERTY_RALTGUI,
     COMBO_QWERTY_RALTCTL,
     COMBO_QWERTY_RALTCTLGUI,
+
+    COMBO_COLEMAK_RALT,
+    COMBO_COLEMAK_RGUI,
+    COMBO_COLEMAK_RCTL,
+    COMBO_COLEMAK_RALTGUI,
+    COMBO_COLEMAK_RALTCTL,
+    COMBO_COLEMAK_RALTCTLGUI,
 
     COMBO_SYM_RALT,
     COMBO_SYM_RGUI,
@@ -147,6 +162,13 @@ const uint16_t PROGMEM fds_combo[]  = {KC_F, KC_D, KC_S, COMBO_END};
 const uint16_t PROGMEM fda_combo[]  = {KC_F, KC_D, KC_A, COMBO_END};
 const uint16_t PROGMEM fdsa_combo[] = {KC_F, KC_D, KC_S, KC_A, COMBO_END};
 
+const uint16_t PROGMEM ts_combo[]   = {KC_T, KC_S, COMBO_END};
+const uint16_t PROGMEM tr_combo[]   = {KC_T, KC_R, COMBO_END};
+const uint16_t PROGMEM ta_combo[]   = {KC_T, KC_A, COMBO_END};
+const uint16_t PROGMEM tsr_combo[]  = {KC_T, KC_S, KC_R, COMBO_END};
+const uint16_t PROGMEM tsa_combo[]  = {KC_T, KC_S, KC_A, COMBO_END};
+const uint16_t PROGMEM tsra_combo[] = {KC_T, KC_S, KC_R, KC_A, COMBO_END};
+
 const uint16_t PROGMEM sym_fd_combo[]   = {UK_RPRN, UK_EQL, COMBO_END};
 const uint16_t PROGMEM sym_fs_combo[]   = {UK_RPRN, UK_LPRN, COMBO_END};
 const uint16_t PROGMEM sym_fa_combo[]   = {UK_RPRN, UK_LCBR, COMBO_END};
@@ -160,6 +182,13 @@ const uint16_t PROGMEM jscln_combo[]   = {KC_J, UK_SCLN, COMBO_END};
 const uint16_t PROGMEM jkl_combo[]     = {KC_J, KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM jkscln_combo[]  = {KC_J, KC_K, UK_SCLN, COMBO_END};
 const uint16_t PROGMEM jklscln_combo[] = {KC_J, KC_K, KC_L, UK_SCLN, COMBO_END};
+
+const uint16_t PROGMEM ne_combo[]   = {KC_N, KC_E, COMBO_END};
+const uint16_t PROGMEM ni_combo[]   = {KC_N, KC_I, COMBO_END};
+const uint16_t PROGMEM no_combo[]   = {KC_N, KC_O, COMBO_END};
+const uint16_t PROGMEM nei_combo[]  = {KC_N, KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM neo_combo[]  = {KC_N, KC_E, KC_O, COMBO_END};
+const uint16_t PROGMEM neio_combo[] = {KC_N, KC_E, KC_I, KC_O, COMBO_END};
 
 const uint16_t PROGMEM sym_jk_combo[]      = {UK_DLR, UK_HASH, COMBO_END};
 const uint16_t PROGMEM sym_jl_combo[]      = {UK_DLR, UK_AT, COMBO_END};
@@ -177,6 +206,13 @@ combo_t key_combos[] = {
     [COMBO_QWERTY_LALTCTL]    = COMBO(fda_combo, LALT(KC_LCTL)),
     [COMBO_QWERTY_LALTCTLGUI] = COMBO(fdsa_combo, LCA(KC_LGUI)),
 
+    [COMBO_COLEMAK_LALT]       = COMBO(ts_combo, KC_LALT),
+    [COMBO_COLEMAK_LGUI]       = COMBO(tr_combo, KC_LGUI),
+    [COMBO_COLEMAK_LCTL]       = COMBO(ta_combo, KC_LCTL),
+    [COMBO_COLEMAK_LALTGUI]    = COMBO(tsr_combo, LALT(KC_LGUI)),
+    [COMBO_COLEMAK_LALTCTL]    = COMBO(tsa_combo, LALT(KC_LCTL)),
+    [COMBO_COLEMAK_LALTCTLGUI] = COMBO(tsra_combo, LCA(KC_LGUI)),
+
     [COMBO_SYM_LALT]          = COMBO(sym_fd_combo, KC_LALT),
     [COMBO_SYM_LGUI]          = COMBO(sym_fs_combo, KC_LGUI),
     [COMBO_SYM_LCTL]          = COMBO(sym_fa_combo, KC_LCTL),
@@ -190,6 +226,13 @@ combo_t key_combos[] = {
     [COMBO_QWERTY_RALTGUI]    = COMBO(jkl_combo, LALT(KC_LGUI)),
     [COMBO_QWERTY_RALTCTL]    = COMBO(jkscln_combo, LALT(KC_LCTL)),
     [COMBO_QWERTY_RALTCTLGUI] = COMBO(jklscln_combo, LCA(KC_LGUI)),
+
+    [COMBO_COLEMAK_RALT]       = COMBO(ne_combo, KC_LALT),
+    [COMBO_COLEMAK_RGUI]       = COMBO(ni_combo, KC_LGUI),
+    [COMBO_COLEMAK_RCTL]       = COMBO(no_combo, KC_LCTL),
+    [COMBO_COLEMAK_RALTGUI]    = COMBO(nei_combo, LALT(KC_LGUI)),
+    [COMBO_COLEMAK_RALTCTL]    = COMBO(neo_combo, LALT(KC_LCTL)),
+    [COMBO_COLEMAK_RALTCTLGUI] = COMBO(neio_combo, LCA(KC_LGUI)),
 
     [COMBO_SYM_RALT]          = COMBO(sym_jk_combo, KC_LALT),
     [COMBO_SYM_RGUI]          = COMBO(sym_jl_combo, KC_LGUI),
@@ -378,3 +421,38 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 }
 #    endif // CHARYBDIS_AUTO_SNIPING_ON_LAYER
 #endif     // POINTING_DEVICE_ENABLE
+
+bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode, keyrecord_t* record) {
+    switch (combo_index) {
+        case COMBO_QWERTY_LALT:
+        case COMBO_QWERTY_LGUI:
+        case COMBO_QWERTY_LCTL:
+        case COMBO_QWERTY_LALTGUI:
+        case COMBO_QWERTY_LALTCTL:
+        case COMBO_QWERTY_LALTCTLGUI:
+        case COMBO_QWERTY_RALT:
+        case COMBO_QWERTY_RGUI:
+        case COMBO_QWERTY_RCTL:
+        case COMBO_QWERTY_RALTGUI:
+        case COMBO_QWERTY_RALTCTL:
+        case COMBO_QWERTY_RALTCTLGUI: {
+            return !layer_state_is(_COLEMAK_DH);
+        }
+        case COMBO_COLEMAK_LALT:
+        case COMBO_COLEMAK_LGUI:
+        case COMBO_COLEMAK_LCTL:
+        case COMBO_COLEMAK_LALTGUI:
+        case COMBO_COLEMAK_LALTCTL:
+        case COMBO_COLEMAK_LALTCTLGUI:
+        case COMBO_COLEMAK_RALT:
+        case COMBO_COLEMAK_RGUI:
+        case COMBO_COLEMAK_RCTL:
+        case COMBO_COLEMAK_RALTGUI:
+        case COMBO_COLEMAK_RALTCTL:
+        case COMBO_COLEMAK_RALTCTLGUI: {
+            return !layer_state_is(_QWERTY);
+        }
+    }
+
+    return true;
+}
