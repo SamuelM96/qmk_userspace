@@ -55,6 +55,6 @@
 #define PERMISSIVE_HOLD
 #define QUICK_TAP_TERM 0
 
-#define COMBO_TERM 25
+#define COMBO_TERM 50
 #define COMBO_MUST_HOLD_MODS
 #define COMBO_HOLD_TERM 175
