@@ -155,26 +155,13 @@ enum combos {
     COMBO_QWERTY_LENGTH
 };
 
+// Qwerty layer
 const uint16_t PROGMEM fd_combo[]   = {KC_F, KC_D, COMBO_END};
 const uint16_t PROGMEM fs_combo[]   = {KC_F, KC_S, COMBO_END};
 const uint16_t PROGMEM fa_combo[]   = {KC_F, KC_A, COMBO_END};
 const uint16_t PROGMEM fds_combo[]  = {KC_F, KC_D, KC_S, COMBO_END};
 const uint16_t PROGMEM fda_combo[]  = {KC_F, KC_D, KC_A, COMBO_END};
 const uint16_t PROGMEM fdsa_combo[] = {KC_F, KC_D, KC_S, KC_A, COMBO_END};
-
-const uint16_t PROGMEM ts_combo[]   = {KC_T, KC_S, COMBO_END};
-const uint16_t PROGMEM tr_combo[]   = {KC_T, KC_R, COMBO_END};
-const uint16_t PROGMEM ta_combo[]   = {KC_T, KC_A, COMBO_END};
-const uint16_t PROGMEM tsr_combo[]  = {KC_T, KC_S, KC_R, COMBO_END};
-const uint16_t PROGMEM tsa_combo[]  = {KC_T, KC_S, KC_A, COMBO_END};
-const uint16_t PROGMEM tsra_combo[] = {KC_T, KC_S, KC_R, KC_A, COMBO_END};
-
-const uint16_t PROGMEM sym_fd_combo[]   = {UK_RPRN, UK_EQL, COMBO_END};
-const uint16_t PROGMEM sym_fs_combo[]   = {UK_RPRN, UK_LPRN, COMBO_END};
-const uint16_t PROGMEM sym_fa_combo[]   = {UK_RPRN, UK_LCBR, COMBO_END};
-const uint16_t PROGMEM sym_fds_combo[]  = {UK_RPRN, UK_EQL, UK_LPRN, COMBO_END};
-const uint16_t PROGMEM sym_fda_combo[]  = {UK_RPRN, UK_EQL, UK_LCBR, COMBO_END};
-const uint16_t PROGMEM sym_fdsa_combo[] = {UK_RPRN, UK_EQL, UK_LPRN, UK_LCBR, COMBO_END};
 
 const uint16_t PROGMEM jk_combo[]      = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM jl_combo[]      = {KC_J, KC_L, COMBO_END};
@@ -183,12 +170,28 @@ const uint16_t PROGMEM jkl_combo[]     = {KC_J, KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM jkscln_combo[]  = {KC_J, KC_K, UK_SCLN, COMBO_END};
 const uint16_t PROGMEM jklscln_combo[] = {KC_J, KC_K, KC_L, UK_SCLN, COMBO_END};
 
+// Colemak layer
+const uint16_t PROGMEM ts_combo[]   = {KC_T, KC_S, COMBO_END};
+const uint16_t PROGMEM tr_combo[]   = {KC_T, KC_R, COMBO_END};
+const uint16_t PROGMEM ta_combo[]   = {KC_T, KC_A, COMBO_END};
+const uint16_t PROGMEM tsr_combo[]  = {KC_T, KC_S, KC_R, COMBO_END};
+const uint16_t PROGMEM tsa_combo[]  = {KC_T, KC_S, KC_A, COMBO_END};
+const uint16_t PROGMEM tsra_combo[] = {KC_T, KC_S, KC_R, KC_A, COMBO_END};
+
 const uint16_t PROGMEM ne_combo[]   = {KC_N, KC_E, COMBO_END};
 const uint16_t PROGMEM ni_combo[]   = {KC_N, KC_I, COMBO_END};
 const uint16_t PROGMEM no_combo[]   = {KC_N, KC_O, COMBO_END};
 const uint16_t PROGMEM nei_combo[]  = {KC_N, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM neo_combo[]  = {KC_N, KC_E, KC_O, COMBO_END};
 const uint16_t PROGMEM neio_combo[] = {KC_N, KC_E, KC_I, KC_O, COMBO_END};
+
+// Symbol layer
+const uint16_t PROGMEM sym_fd_combo[]   = {UK_RPRN, UK_EQL, COMBO_END};
+const uint16_t PROGMEM sym_fs_combo[]   = {UK_RPRN, UK_LPRN, COMBO_END};
+const uint16_t PROGMEM sym_fa_combo[]   = {UK_RPRN, UK_LCBR, COMBO_END};
+const uint16_t PROGMEM sym_fds_combo[]  = {UK_RPRN, UK_EQL, UK_LPRN, COMBO_END};
+const uint16_t PROGMEM sym_fda_combo[]  = {UK_RPRN, UK_EQL, UK_LCBR, COMBO_END};
+const uint16_t PROGMEM sym_fdsa_combo[] = {UK_RPRN, UK_EQL, UK_LPRN, UK_LCBR, COMBO_END};
 
 const uint16_t PROGMEM sym_jk_combo[]      = {UK_DLR, UK_HASH, COMBO_END};
 const uint16_t PROGMEM sym_jl_combo[]      = {UK_DLR, UK_AT, COMBO_END};
