@@ -43,7 +43,6 @@ static uint16_t auto_pointer_layer_timer = 0;
 enum layers {
     _QWERTY = 0,
     _COLEMAK_DH,
-    _GAME,
     _NAV,
     _NUM,
     _SYM,
@@ -215,12 +214,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             L_WEB(UK_Z),UK_X,       UK_C,       UK_D,       UK_V,               UK_K,       UK_H,       UK_COMM,    UK_DOT,  L_WEB(UK_SLSH),
                                     KC_LCTL,    SPC_NAV,    NUM_ESC,            SYM,        KC_LSFT),
 
-    [_GAME] = LAYOUT(
-            KC_TAB,     UK_Q,       UK_W,       UK_E,       UK_R,               UK_Y,       UK_U,       UK_I,       UK_O,         UK_P,
-            KC_LSFT,    UK_A,       UK_S,       UK_D,       UK_F,               UK_H,       UK_J,       UK_K,       UK_L,         UK_M,
-            KC_LCTL,    UK_Z,       UK_X,       UK_C,       UK_V,               UK_N,       KC_BTN1,    KC_BTN2,    KC_BTN3,      DRGSCRL,
-                                    KC_LALT,    KC_SPC,     LT(OTHER, UK_B),    UK_T,       UK_G),
-
 	[_NAV] = LAYOUT(
             MACRO,      KC_TRNS,    QK_AREP,    QK_REP,     KC_ESC,             G(S(KC_PSCR)),KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,
             OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   KC_ENT,             KC_TAB,       KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,
@@ -253,7 +246,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_OTHER] = LAYOUT(
             QWERTY,     KC_NO,      KC_NO,      KC_NO,      KC_ESC,             RGB_VAI,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    RGB_M_P,
             QK_MAKE,    KC_NO,      KC_NO,      KC_NO,      KC_ENT,             RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
-            QK_BOOT,    QK_MAKE,    COLEMAK_DH, KC_NO,      KC_NO,              TG(_GAME),  RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
+            QK_BOOT,    QK_MAKE,    COLEMAK_DH, KC_NO,      KC_NO,              KC_NO,      RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
                                     KC_NO,      KC_NO,      KC_NO,              KC_LCTL,    KC_LSFT),
 
 	[_POINTER] = LAYOUT(
