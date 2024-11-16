@@ -263,7 +263,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_NAV] = LAYOUT(
             MACRO,      KC_TRNS,    QK_AREP,    QK_REP,     KC_ESC,             G(S(KC_PSCR)),KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,
             OSM_LGUI,   OSM_LALT,   OSM_LCTL,   OSM_LSFT,   KC_ENT,             KC_TAB,       KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,
-            KC_CAPS,    OSM_RALT,   CW_TOGG,    KC_SPC,     SNAKECASE,          KC_DEL,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+            KC_CAPS,    OSM_RALT,   CW_TOGG,    SNAKECASE,  KC_SPC,             KC_DEL,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
                                     OTHER,      KC_TRNS,    KC_TRNS,            MEDIA,        KC_BSPC),
 
 	[_NUM] = LAYOUT(
