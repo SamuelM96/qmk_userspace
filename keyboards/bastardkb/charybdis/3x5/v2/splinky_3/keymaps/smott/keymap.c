@@ -112,49 +112,92 @@ enum combos {
     // L/R is used to denote keyboard side, not keycodes
     COMBO_QWERTY_LALT,
     COMBO_QWERTY_LGUI,
+    COMBO_QWERTY_LCTL,
     COMBO_QWERTY_LALTGUI,
-    COMBO_QWERTY_RALT,
-    COMBO_QWERTY_RGUI,
-    COMBO_QWERTY_RALTGUI,
+    COMBO_QWERTY_LALTCTL,
+    COMBO_QWERTY_LALTCTLGUI,
 
     COMBO_SYM_LALT,
     COMBO_SYM_LGUI,
+    COMBO_SYM_LCTL,
     COMBO_SYM_LALTGUI,
+    COMBO_SYM_LALTCTL,
+    COMBO_SYM_LALTCTLGUI,
+
+    COMBO_QWERTY_RALT,
+    COMBO_QWERTY_RGUI,
+    COMBO_QWERTY_RCTL,
+    COMBO_QWERTY_RALTGUI,
+    COMBO_QWERTY_RALTCTL,
+    COMBO_QWERTY_RALTCTLGUI,
+
     COMBO_SYM_RALT,
     COMBO_SYM_RGUI,
+    COMBO_SYM_RCTL,
     COMBO_SYM_RALTGUI,
+    COMBO_SYM_RALTCTL,
+    COMBO_SYM_RALTCTLGUI,
 
     COMBO_QWERTY_LENGTH
 };
 
-const uint16_t PROGMEM fd_combo[]  = {KC_F, KC_D, COMBO_END};
-const uint16_t PROGMEM fs_combo[]  = {KC_F, KC_S, COMBO_END};
-const uint16_t PROGMEM fds_combo[] = {KC_F, KC_D, KC_S, COMBO_END};
-const uint16_t PROGMEM jk_combo[]  = {KC_J, KC_K, COMBO_END};
-const uint16_t PROGMEM jl_combo[]  = {KC_J, KC_L, COMBO_END};
-const uint16_t PROGMEM jkl_combo[] = {KC_J, KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM fd_combo[]   = {KC_F, KC_D, COMBO_END};
+const uint16_t PROGMEM fs_combo[]   = {KC_F, KC_S, COMBO_END};
+const uint16_t PROGMEM fa_combo[]   = {KC_F, KC_A, COMBO_END};
+const uint16_t PROGMEM fds_combo[]  = {KC_F, KC_D, KC_S, COMBO_END};
+const uint16_t PROGMEM fda_combo[]  = {KC_F, KC_D, KC_A, COMBO_END};
+const uint16_t PROGMEM fdsa_combo[] = {KC_F, KC_D, KC_S, KC_A, COMBO_END};
 
-const uint16_t PROGMEM sym_fd_combo[]  = {UK_RPRN, UK_EQL, COMBO_END};
-const uint16_t PROGMEM sym_fs_combo[]  = {UK_RPRN, UK_LPRN, COMBO_END};
-const uint16_t PROGMEM sym_fds_combo[] = {UK_RPRN, UK_EQL, UK_LPRN, COMBO_END};
-const uint16_t PROGMEM sym_jk_combo[]  = {UK_DLR, UK_HASH, COMBO_END};
-const uint16_t PROGMEM sym_jl_combo[]  = {UK_DLR, UK_AT, COMBO_END};
-const uint16_t PROGMEM sym_jkl_combo[] = {UK_DLR, UK_HASH, UK_AT, COMBO_END};
+const uint16_t PROGMEM sym_fd_combo[]   = {UK_RPRN, UK_EQL, COMBO_END};
+const uint16_t PROGMEM sym_fs_combo[]   = {UK_RPRN, UK_LPRN, COMBO_END};
+const uint16_t PROGMEM sym_fa_combo[]   = {UK_RPRN, UK_LCBR, COMBO_END};
+const uint16_t PROGMEM sym_fds_combo[]  = {UK_RPRN, UK_EQL, UK_LPRN, COMBO_END};
+const uint16_t PROGMEM sym_fda_combo[]  = {UK_RPRN, UK_EQL, UK_LCBR, COMBO_END};
+const uint16_t PROGMEM sym_fdsa_combo[] = {UK_RPRN, UK_EQL, UK_LPRN, UK_LCBR, COMBO_END};
+
+const uint16_t PROGMEM jk_combo[]      = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM jl_combo[]      = {KC_J, KC_L, COMBO_END};
+const uint16_t PROGMEM jscln_combo[]   = {KC_J, UK_SCLN, COMBO_END};
+const uint16_t PROGMEM jkl_combo[]     = {KC_J, KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM jkscln_combo[]  = {KC_J, KC_K, UK_SCLN, COMBO_END};
+const uint16_t PROGMEM jklscln_combo[] = {KC_J, KC_K, KC_L, UK_SCLN, COMBO_END};
+
+const uint16_t PROGMEM sym_jk_combo[]      = {UK_DLR, UK_HASH, COMBO_END};
+const uint16_t PROGMEM sym_jl_combo[]      = {UK_DLR, UK_AT, COMBO_END};
+const uint16_t PROGMEM sym_jscln_combo[]   = {UK_DLR, UK_EXLM, COMBO_END};
+const uint16_t PROGMEM sym_jkl_combo[]     = {UK_DLR, UK_HASH, UK_AT, COMBO_END};
+const uint16_t PROGMEM sym_jkscln_combo[]  = {UK_DLR, UK_HASH, UK_EXLM, COMBO_END};
+const uint16_t PROGMEM sym_jklscln_combo[] = {UK_DLR, UK_HASH, UK_AT, UK_EXLM, COMBO_END};
 
 // clang-format off
 combo_t key_combos[] = {
-    [COMBO_QWERTY_LALT]    = COMBO(fd_combo, KC_LALT),
-    [COMBO_QWERTY_LGUI]    = COMBO(fs_combo, KC_LGUI),
-    [COMBO_QWERTY_LALTGUI] = COMBO(fds_combo, LALT(KC_LGUI)),
-    [COMBO_QWERTY_RALT]    = COMBO(jk_combo, KC_LALT),
-    [COMBO_QWERTY_RGUI]    = COMBO(jl_combo, KC_LGUI),
-    [COMBO_QWERTY_RALTGUI] = COMBO(fds_combo, LALT(KC_LGUI)),
-    [COMBO_SYM_LALT]    = COMBO(sym_fd_combo, KC_LALT),
-    [COMBO_SYM_LGUI]    = COMBO(sym_fs_combo, KC_LGUI),
-    [COMBO_SYM_LALTGUI] = COMBO(sym_fds_combo, LALT(KC_LGUI)),
-    [COMBO_SYM_RALT]    = COMBO(sym_jk_combo, KC_LALT),
-    [COMBO_SYM_RGUI]    = COMBO(sym_jl_combo, KC_LGUI),
-    [COMBO_SYM_RALTGUI] = COMBO(sym_fds_combo, LALT(KC_LGUI)),
+    [COMBO_QWERTY_LALT]       = COMBO(fd_combo, KC_LALT),
+    [COMBO_QWERTY_LGUI]       = COMBO(fs_combo, KC_LGUI),
+    [COMBO_QWERTY_LCTL]       = COMBO(fa_combo, KC_LCTL),
+    [COMBO_QWERTY_LALTGUI]    = COMBO(fds_combo, LALT(KC_LGUI)),
+    [COMBO_QWERTY_LALTCTL]    = COMBO(fda_combo, LALT(KC_LCTL)),
+    [COMBO_QWERTY_LALTCTLGUI] = COMBO(fdsa_combo, LCA(KC_LGUI)),
+
+    [COMBO_SYM_LALT]          = COMBO(sym_fd_combo, KC_LALT),
+    [COMBO_SYM_LGUI]          = COMBO(sym_fs_combo, KC_LGUI),
+    [COMBO_SYM_LCTL]          = COMBO(sym_fa_combo, KC_LCTL),
+    [COMBO_SYM_LALTGUI]       = COMBO(sym_fds_combo, LALT(KC_LGUI)),
+    [COMBO_SYM_LALTCTL]       = COMBO(sym_fda_combo, LALT(KC_LCTL)),
+    [COMBO_SYM_LALTCTLGUI]    = COMBO(sym_fdsa_combo, LCA(KC_LGUI)),
+
+    [COMBO_QWERTY_RALT]       = COMBO(jk_combo, KC_LALT),
+    [COMBO_QWERTY_RGUI]       = COMBO(jl_combo, KC_LGUI),
+    [COMBO_QWERTY_RCTL]       = COMBO(jscln_combo, KC_LCTL),
+    [COMBO_QWERTY_RALTGUI]    = COMBO(jkl_combo, LALT(KC_LGUI)),
+    [COMBO_QWERTY_RALTCTL]    = COMBO(jkscln_combo, LALT(KC_LCTL)),
+    [COMBO_QWERTY_RALTCTLGUI] = COMBO(jklscln_combo, LCA(KC_LGUI)),
+
+    [COMBO_SYM_RALT]          = COMBO(sym_jk_combo, KC_LALT),
+    [COMBO_SYM_RGUI]          = COMBO(sym_jl_combo, KC_LGUI),
+    [COMBO_SYM_RCTL]          = COMBO(sym_jl_combo, KC_LCTL),
+    [COMBO_SYM_RALTGUI]       = COMBO(sym_jkl_combo, LALT(KC_LGUI)),
+    [COMBO_SYM_RALTCTL]       = COMBO(sym_jkscln_combo, LALT(KC_LCTL)),
+    [COMBO_SYM_RALTCTLGUI]    = COMBO(sym_jklscln_combo, LCA(KC_LGUI)),
 };
 // clang-format on
 
