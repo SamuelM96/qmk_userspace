@@ -88,10 +88,10 @@ enum custom_keycodes {
 #define ALT_ENT MT(MOD_LALT, KC_ENT)
 #define ALT_SPC MT(MOD_LALT, KC_SPC)
 // TODO: Needs Colemak DH support. KC_TRNS didn't work
-#define CTL_TRNS MT(MOD_LCTL, KC_A)
-#define GUI_TRNS MT(MOD_LGUI, KC_S)
-#define ALT_TRNS MT(MOD_LALT, KC_D)
 #define SFT_TRNS MT(MOD_LSFT, KC_F)
+#define CTL_TRNS MT(MOD_LCTL, KC_D)
+#define ALT_TRNS MT(MOD_LALT, KC_S)
+#define GUI_TRNS MT(MOD_LGUI, KC_A)
 
 #define OSM_LGUI OSM(MOD_LGUI)
 #define OSM_LCTL OSM(MOD_LCTL)
@@ -110,40 +110,40 @@ static uint16_t mouse_jiggler_timer;
 #define COMBO_SHOULD_TRIGGER
 enum combos {
     // L/R is used to denote keyboard side, not keycodes
+    COMBO_QWERTY_LCTL,
     COMBO_QWERTY_LALT,
     COMBO_QWERTY_LGUI,
-    COMBO_QWERTY_LCTL,
+    COMBO_QWERTY_LCTLALT,
     COMBO_QWERTY_LALTGUI,
-    COMBO_QWERTY_LALTCTL,
-    COMBO_QWERTY_LALTCTLGUI,
+    COMBO_QWERTY_LCTLALTGUI,
 
-    COMBO_COLEMAK_LALT,
-    COMBO_COLEMAK_LGUI,
-    COMBO_COLEMAK_LCTL,
-    COMBO_COLEMAK_LALTGUI,
-    COMBO_COLEMAK_LALTCTL,
-    COMBO_COLEMAK_LALTCTLGUI,
-
-    COMBO_SYM_LALT,
-    COMBO_SYM_LGUI,
-    COMBO_SYM_LCTL,
-    COMBO_SYM_LALTGUI,
-    COMBO_SYM_LALTCTL,
-    COMBO_SYM_LALTCTLGUI,
-
+    COMBO_QWERTY_RCTL,
     COMBO_QWERTY_RALT,
     COMBO_QWERTY_RGUI,
-    COMBO_QWERTY_RCTL,
+    COMBO_QWERTY_RCTLALT,
     COMBO_QWERTY_RALTGUI,
-    COMBO_QWERTY_RALTCTL,
-    COMBO_QWERTY_RALTCTLGUI,
+    COMBO_QWERTY_RCTLALTGUI,
 
+    COMBO_COLEMAK_LCTL,
+    COMBO_COLEMAK_LALT,
+    COMBO_COLEMAK_LGUI,
+    COMBO_COLEMAK_LCTLALT,
+    COMBO_COLEMAK_LALTGUI,
+    COMBO_COLEMAK_LCTLALTGUI,
+
+    COMBO_COLEMAK_RCTL,
     COMBO_COLEMAK_RALT,
     COMBO_COLEMAK_RGUI,
-    COMBO_COLEMAK_RCTL,
+    COMBO_COLEMAK_RCTLALT,
     COMBO_COLEMAK_RALTGUI,
-    COMBO_COLEMAK_RALTCTL,
-    COMBO_COLEMAK_RALTCTLGUI,
+    COMBO_COLEMAK_RCTLALTGUI,
+
+    COMBO_SYM_LCTL,
+    COMBO_SYM_LALT,
+    COMBO_SYM_LGUI,
+    COMBO_SYM_LCTLALT,
+    COMBO_SYM_LALTGUI,
+    COMBO_SYM_LCTLALTGUI,
 
     COMBO_SYM_RALT,
     COMBO_SYM_RGUI,
@@ -152,7 +152,7 @@ enum combos {
     COMBO_SYM_RALTCTL,
     COMBO_SYM_RALTCTLGUI,
 
-    COMBO_QWERTY_LENGTH
+    COMBO_LENGTH
 };
 
 // Qwerty layer
@@ -202,46 +202,46 @@ const uint16_t PROGMEM sym_jklscln_combo[] = {UK_DLR, UK_HASH, UK_AT, UK_EXLM, C
 
 // clang-format off
 combo_t key_combos[] = {
-    [COMBO_QWERTY_LALT]        = COMBO(fd_combo, KC_LALT),
-    [COMBO_QWERTY_LGUI]        = COMBO(fs_combo, KC_LGUI),
-    [COMBO_QWERTY_LCTL]        = COMBO(fa_combo, KC_LCTL),
-    [COMBO_QWERTY_LALTGUI]     = COMBO(fds_combo, LALT(KC_LGUI)),
-    [COMBO_QWERTY_LALTCTL]     = COMBO(fda_combo, LALT(KC_LCTL)),
-    [COMBO_QWERTY_LALTCTLGUI]  = COMBO(fdsa_combo, LCA(KC_LGUI)),
+    [COMBO_QWERTY_LCTL]        = COMBO(fd_combo, KC_LCTL),
+    [COMBO_QWERTY_LALT]        = COMBO(fs_combo, KC_LALT),
+    [COMBO_QWERTY_LGUI]        = COMBO(fa_combo, KC_LGUI),
+    [COMBO_QWERTY_LCTLALT]     = COMBO(fds_combo, LALT(KC_LCTL)),
+    [COMBO_QWERTY_LALTGUI]     = COMBO(fda_combo, LALT(KC_LGUI)),
+    [COMBO_QWERTY_LCTLALTGUI]  = COMBO(fdsa_combo, LCA(KC_LGUI)),
 
-    [COMBO_COLEMAK_LALT]       = COMBO(ts_combo, KC_LALT),
-    [COMBO_COLEMAK_LGUI]       = COMBO(tr_combo, KC_LGUI),
-    [COMBO_COLEMAK_LCTL]       = COMBO(ta_combo, KC_LCTL),
-    [COMBO_COLEMAK_LALTGUI]    = COMBO(tsr_combo, LALT(KC_LGUI)),
-    [COMBO_COLEMAK_LALTCTL]    = COMBO(tsa_combo, LALT(KC_LCTL)),
-    [COMBO_COLEMAK_LALTCTLGUI] = COMBO(tsra_combo, LCA(KC_LGUI)),
+    [COMBO_COLEMAK_LCTL]       = COMBO(ts_combo, KC_LCTL),
+    [COMBO_COLEMAK_LALT]       = COMBO(tr_combo, KC_LALT),
+    [COMBO_COLEMAK_LGUI]       = COMBO(ta_combo, KC_LGUI),
+    [COMBO_COLEMAK_LCTLALT]    = COMBO(tsr_combo, LALT(KC_LCTL)),
+    [COMBO_COLEMAK_LALTGUI]    = COMBO(tsa_combo, LALT(KC_LGUI)),
+    [COMBO_COLEMAK_LCTLALTGUI] = COMBO(tsra_combo, LCA(KC_LGUI)),
 
-    [COMBO_SYM_LALT]           = COMBO(sym_fd_combo, KC_LALT),
-    [COMBO_SYM_LGUI]           = COMBO(sym_fs_combo, KC_LGUI),
-    [COMBO_SYM_LCTL]           = COMBO(sym_fa_combo, KC_LCTL),
-    [COMBO_SYM_LALTGUI]        = COMBO(sym_fds_combo, LALT(KC_LGUI)),
-    [COMBO_SYM_LALTCTL]        = COMBO(sym_fda_combo, LALT(KC_LCTL)),
-    [COMBO_SYM_LALTCTLGUI]     = COMBO(sym_fdsa_combo, LCA(KC_LGUI)),
+    [COMBO_SYM_LCTL]           = COMBO(sym_fd_combo, KC_LCTL),
+    [COMBO_SYM_LALT]           = COMBO(sym_fs_combo, KC_LALT),
+    [COMBO_SYM_LGUI]           = COMBO(sym_fa_combo, KC_LGUI),
+    [COMBO_SYM_LCTLALT]        = COMBO(sym_fds_combo, LALT(KC_LCTL)),
+    [COMBO_SYM_LALTGUI]        = COMBO(sym_fda_combo, LALT(KC_LGUI)),
+    [COMBO_SYM_LCTLALTGUI]     = COMBO(sym_fdsa_combo, LCA(KC_LGUI)),
 
-    [COMBO_QWERTY_RALT]        = COMBO(jk_combo, KC_LALT),
-    [COMBO_QWERTY_RGUI]        = COMBO(jl_combo, KC_LGUI),
-    [COMBO_QWERTY_RCTL]        = COMBO(jscln_combo, KC_LCTL),
-    [COMBO_QWERTY_RALTGUI]     = COMBO(jkl_combo, LALT(KC_LGUI)),
-    [COMBO_QWERTY_RALTCTL]     = COMBO(jkscln_combo, LALT(KC_LCTL)),
-    [COMBO_QWERTY_RALTCTLGUI]  = COMBO(jklscln_combo, LCA(KC_LGUI)),
+    [COMBO_QWERTY_RCTL]        = COMBO(jk_combo, KC_LCTL),
+    [COMBO_QWERTY_RALT]        = COMBO(jl_combo, KC_LALT),
+    [COMBO_QWERTY_RGUI]        = COMBO(jscln_combo, KC_LGUI),
+    [COMBO_QWERTY_RCTLALT]     = COMBO(jkl_combo, LALT(KC_LCTL)),
+    [COMBO_QWERTY_RALTGUI]     = COMBO(jkscln_combo, LALT(KC_LGUI)),
+    [COMBO_QWERTY_RCTLALTGUI]  = COMBO(jklscln_combo, LCA(KC_LGUI)),
 
-    [COMBO_COLEMAK_RALT]       = COMBO(ne_combo, KC_LALT),
-    [COMBO_COLEMAK_RGUI]       = COMBO(ni_combo, KC_LGUI),
-    [COMBO_COLEMAK_RCTL]       = COMBO(no_combo, KC_LCTL),
-    [COMBO_COLEMAK_RALTGUI]    = COMBO(nei_combo, LALT(KC_LGUI)),
-    [COMBO_COLEMAK_RALTCTL]    = COMBO(neo_combo, LALT(KC_LCTL)),
-    [COMBO_COLEMAK_RALTCTLGUI] = COMBO(neio_combo, LCA(KC_LGUI)),
+    [COMBO_COLEMAK_RCTL]       = COMBO(ne_combo, KC_LCTL),
+    [COMBO_COLEMAK_RALT]       = COMBO(ni_combo, KC_LALT),
+    [COMBO_COLEMAK_RGUI]       = COMBO(no_combo, KC_LGUI),
+    [COMBO_COLEMAK_RCTLALT]    = COMBO(nei_combo, LALT(KC_LCTL)),
+    [COMBO_COLEMAK_RALTGUI]    = COMBO(neo_combo, LALT(KC_LGUI)),
+    [COMBO_COLEMAK_RCTLALTGUI] = COMBO(neio_combo, LCA(KC_LGUI)),
 
     [COMBO_SYM_RALT]           = COMBO(sym_jk_combo, KC_LALT),
     [COMBO_SYM_RGUI]           = COMBO(sym_jl_combo, KC_LGUI),
     [COMBO_SYM_RCTL]           = COMBO(sym_jscln_combo, KC_LCTL),
-    [COMBO_SYM_RALTGUI]        = COMBO(sym_jkl_combo, LALT(KC_LGUI)),
-    [COMBO_SYM_RALTCTL]        = COMBO(sym_jkscln_combo, LALT(KC_LCTL)),
+    [COMBO_SYM_RALTCTL]        = COMBO(sym_jkl_combo, LALT(KC_LCTL)),
+    [COMBO_SYM_RALTGUI]        = COMBO(sym_jkscln_combo, LALT(KC_LGUI)),
     [COMBO_SYM_RALTCTLGUI]     = COMBO(sym_jklscln_combo, LCA(KC_LGUI)),
 };
 // clang-format on
@@ -262,13 +262,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[_NAV] = LAYOUT(
             MACRO,      KC_TRNS,    QK_AREP,    QK_REP,     KC_ESC,             G(S(KC_PSCR)),KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,
-            OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   KC_ENT,             KC_TAB,       KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,
-            KC_CAPS,    CW_TOGG,    OSM_RALT,   KC_SPC,     SNAKECASE,          KC_DEL,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+            OSM_LGUI,   OSM_LALT,   OSM_LCTL,   OSM_LSFT,   KC_ENT,             KC_TAB,       KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,
+            KC_CAPS,    OSM_RALT,   CW_TOGG,    KC_SPC,     SNAKECASE,          KC_DEL,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
                                     OTHER,      KC_TRNS,    KC_TRNS,            MEDIA,        KC_BSPC),
 
 	[_NUM] = LAYOUT(
             UK_LBRC,    UK_LABK,    UK_MINS,    UK_RABK,    UK_RBRC,            UK_ASTR,    KC_7,       KC_8,       KC_9,       KC_MINS,
-            OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   UK_RCBR,            UK_SLSH,    KC_4,       KC_5,       KC_6,       UK_PLUS,
+            OSM_LGUI,   OSM_LALT,   OSM_LCTL,   OSM_LSFT,   UK_RCBR,            UK_SLSH,    KC_4,       KC_5,       KC_6,       UK_PLUS,
             UK_BSLS,    UK_ASTR,    UK_COLN,    UK_PLUS,    UK_UNDS,            UK_EQL,     KC_1,       KC_2,       KC_3,       UK_DOT,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            UK_0,       KC_BSPC),
 
@@ -280,8 +280,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[_FUNCTION] = LAYOUT(
             KC_F13,     KC_F14,     KC_F15,     KC_F16,     KC_F17,             KC_F10,     KC_F7,      KC_F8,      KC_F9,      KC_PSCR,
-            OSM_LCTL,   OSM_LGUI,   OSM_LALT,   OSM_LSFT,   OTHER,              KC_F11,     KC_F4,      KC_F5,      KC_F6,      KC_INS,
-            OSM_RCTL,   OSM_RGUI,   OSM_RALT,   OSM_RSFT,   KC_TRNS,            KC_F12,     KC_F1,      KC_F2,      KC_F3,      KC_TRNS,
+            OSM_LGUI,   OSM_LALT,   OSM_LCTL,   OSM_LSFT,   OTHER,              KC_F11,     KC_F4,      KC_F5,      KC_F6,      KC_INS,
+            OSM_RGUI,   OSM_RALT,   OSM_RCTL,   OSM_RSFT,   KC_TRNS,            KC_F12,     KC_F1,      KC_F2,      KC_F3,      KC_TRNS,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 
 	[_MEDIA] = LAYOUT(
@@ -297,7 +297,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[_POINTER] = LAYOUT(
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-            CTL_TRNS,   GUI_TRNS,   ALT_TRNS,   SFT_TRNS,   KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_BTN3,    KC_TRNS,    KC_TRNS,
+            GUI_TRNS,   ALT_TRNS,   CTL_TRNS,   SFT_TRNS,   KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_BTN3,    KC_TRNS,    KC_TRNS,
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_BTN1,    KC_BTN2,    DRGSCRL,    KC_TRNS,
                                     KC_LCTL,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 
@@ -431,28 +431,28 @@ bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode
         case COMBO_QWERTY_LGUI:
         case COMBO_QWERTY_LCTL:
         case COMBO_QWERTY_LALTGUI:
-        case COMBO_QWERTY_LALTCTL:
-        case COMBO_QWERTY_LALTCTLGUI:
+        case COMBO_QWERTY_LCTLALT:
+        case COMBO_QWERTY_LCTLALTGUI:
         case COMBO_QWERTY_RALT:
         case COMBO_QWERTY_RGUI:
         case COMBO_QWERTY_RCTL:
         case COMBO_QWERTY_RALTGUI:
-        case COMBO_QWERTY_RALTCTL:
-        case COMBO_QWERTY_RALTCTLGUI: {
+        case COMBO_QWERTY_RCTLALT:
+        case COMBO_QWERTY_RCTLALTGUI: {
             return !layer_state_is(_COLEMAK_DH);
         }
         case COMBO_COLEMAK_LALT:
         case COMBO_COLEMAK_LGUI:
         case COMBO_COLEMAK_LCTL:
         case COMBO_COLEMAK_LALTGUI:
-        case COMBO_COLEMAK_LALTCTL:
-        case COMBO_COLEMAK_LALTCTLGUI:
+        case COMBO_COLEMAK_LCTLALT:
+        case COMBO_COLEMAK_LCTLALTGUI:
         case COMBO_COLEMAK_RALT:
         case COMBO_COLEMAK_RGUI:
         case COMBO_COLEMAK_RCTL:
         case COMBO_COLEMAK_RALTGUI:
-        case COMBO_COLEMAK_RALTCTL:
-        case COMBO_COLEMAK_RALTCTLGUI: {
+        case COMBO_COLEMAK_RCTLALT:
+        case COMBO_COLEMAK_RCTLALTGUI: {
             return !layer_state_is(_QWERTY);
         }
     }
