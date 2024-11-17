@@ -209,20 +209,6 @@ combo_t key_combos[] = {
     [COMBO_QWERTY_LALTGUI]     = COMBO(fda_combo, LALT(KC_LGUI)),
     [COMBO_QWERTY_LCTLALTGUI]  = COMBO(fdsa_combo, LCA(KC_LGUI)),
 
-    [COMBO_COLEMAK_LCTL]       = COMBO(ts_combo, KC_LCTL),
-    [COMBO_COLEMAK_LALT]       = COMBO(tr_combo, KC_LALT),
-    [COMBO_COLEMAK_LGUI]       = COMBO(ta_combo, KC_LGUI),
-    [COMBO_COLEMAK_LCTLALT]    = COMBO(tsr_combo, LALT(KC_LCTL)),
-    [COMBO_COLEMAK_LALTGUI]    = COMBO(tsa_combo, LALT(KC_LGUI)),
-    [COMBO_COLEMAK_LCTLALTGUI] = COMBO(tsra_combo, LCA(KC_LGUI)),
-
-    [COMBO_SYM_LCTL]           = COMBO(sym_fd_combo, KC_LCTL),
-    [COMBO_SYM_LALT]           = COMBO(sym_fs_combo, KC_LALT),
-    [COMBO_SYM_LGUI]           = COMBO(sym_fa_combo, KC_LGUI),
-    [COMBO_SYM_LCTLALT]        = COMBO(sym_fds_combo, LALT(KC_LCTL)),
-    [COMBO_SYM_LALTGUI]        = COMBO(sym_fda_combo, LALT(KC_LGUI)),
-    [COMBO_SYM_LCTLALTGUI]     = COMBO(sym_fdsa_combo, LCA(KC_LGUI)),
-
     [COMBO_QWERTY_RCTL]        = COMBO(jk_combo, KC_LCTL),
     [COMBO_QWERTY_RALT]        = COMBO(jl_combo, KC_LALT),
     [COMBO_QWERTY_RGUI]        = COMBO(jscln_combo, KC_LGUI),
@@ -230,12 +216,26 @@ combo_t key_combos[] = {
     [COMBO_QWERTY_RALTGUI]     = COMBO(jkscln_combo, LALT(KC_LGUI)),
     [COMBO_QWERTY_RCTLALTGUI]  = COMBO(jklscln_combo, LCA(KC_LGUI)),
 
+    [COMBO_COLEMAK_LCTL]       = COMBO(ts_combo, KC_LCTL),
+    [COMBO_COLEMAK_LALT]       = COMBO(tr_combo, KC_LALT),
+    [COMBO_COLEMAK_LGUI]       = COMBO(ta_combo, KC_LGUI),
+    [COMBO_COLEMAK_LCTLALT]    = COMBO(tsr_combo, LALT(KC_LCTL)),
+    [COMBO_COLEMAK_LALTGUI]    = COMBO(tsa_combo, LALT(KC_LGUI)),
+    [COMBO_COLEMAK_LCTLALTGUI] = COMBO(tsra_combo, LCA(KC_LGUI)),
+
     [COMBO_COLEMAK_RCTL]       = COMBO(ne_combo, KC_LCTL),
     [COMBO_COLEMAK_RALT]       = COMBO(ni_combo, KC_LALT),
     [COMBO_COLEMAK_RGUI]       = COMBO(no_combo, KC_LGUI),
     [COMBO_COLEMAK_RCTLALT]    = COMBO(nei_combo, LALT(KC_LCTL)),
     [COMBO_COLEMAK_RALTGUI]    = COMBO(neo_combo, LALT(KC_LGUI)),
     [COMBO_COLEMAK_RCTLALTGUI] = COMBO(neio_combo, LCA(KC_LGUI)),
+
+    [COMBO_SYM_LCTL]           = COMBO(sym_fd_combo, KC_LCTL),
+    [COMBO_SYM_LALT]           = COMBO(sym_fs_combo, KC_LALT),
+    [COMBO_SYM_LGUI]           = COMBO(sym_fa_combo, KC_LGUI),
+    [COMBO_SYM_LCTLALT]        = COMBO(sym_fds_combo, LALT(KC_LCTL)),
+    [COMBO_SYM_LALTGUI]        = COMBO(sym_fda_combo, LALT(KC_LGUI)),
+    [COMBO_SYM_LCTLALTGUI]     = COMBO(sym_fdsa_combo, LCA(KC_LGUI)),
 
     [COMBO_SYM_RALT]           = COMBO(sym_jk_combo, KC_LALT),
     [COMBO_SYM_RGUI]           = COMBO(sym_jl_combo, KC_LGUI),
