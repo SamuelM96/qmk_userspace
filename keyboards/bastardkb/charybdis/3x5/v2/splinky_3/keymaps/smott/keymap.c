@@ -171,7 +171,7 @@ const uint16_t PROGMEM jscln_combo[]   = {KC_J, UK_SCLN, COMBO_END};
 const uint16_t PROGMEM jkl_combo[]     = {KC_J, KC_K, KC_L, COMBO_END};
 const uint16_t PROGMEM jkscln_combo[]  = {KC_J, KC_K, UK_SCLN, COMBO_END};
 const uint16_t PROGMEM jklscln_combo[] = {KC_J, KC_K, KC_L, UK_SCLN, COMBO_END};
-const uint16_t PROGMEM mcomma_combo[]  = {KC_M, UK_COMM, COMBO_END};
+const uint16_t PROGMEM commam_combo[]  = {UK_COMM, KC_M, COMBO_END};
 
 // Colemak layer
 const uint16_t PROGMEM ts_combo[]   = {KC_T, KC_S, COMBO_END};
@@ -187,7 +187,7 @@ const uint16_t PROGMEM no_combo[]     = {KC_N, KC_O, COMBO_END};
 const uint16_t PROGMEM nei_combo[]    = {KC_N, KC_E, KC_I, COMBO_END};
 const uint16_t PROGMEM neo_combo[]    = {KC_N, KC_E, KC_O, COMBO_END};
 const uint16_t PROGMEM neio_combo[]   = {KC_N, KC_E, KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM hcomma_combo[] = {KC_H, UK_COMM, COMBO_END};
+const uint16_t PROGMEM commah_combo[] = {UK_COMM, KC_H, COMBO_END};
 
 // Symbol layer
 const uint16_t PROGMEM sym_fd_combo[]   = {UK_RPRN, UK_EQL, COMBO_END};
@@ -219,7 +219,7 @@ combo_t key_combos[] = {
     [COMBO_QWERTY_RCTLALT]     = COMBO(jkl_combo, LALT(KC_LCTL)),
     [COMBO_QWERTY_RALTGUI]     = COMBO(jkscln_combo, LALT(KC_LGUI)),
     [COMBO_QWERTY_RCTLALTGUI]  = COMBO(jklscln_combo, LCA(KC_LGUI)),
-    [COMBO_QWERTY_CTLSPC]      = COMBO(mcomma_combo, LCTL(KC_SPC)),
+    [COMBO_QWERTY_CTLSPC]      = COMBO(commam_combo, LCTL(KC_SPC)),
 
     [COMBO_COLEMAK_LCTL]       = COMBO(ts_combo, KC_LCTL),
     [COMBO_COLEMAK_LALT]       = COMBO(tr_combo, KC_LALT),
@@ -234,7 +234,7 @@ combo_t key_combos[] = {
     [COMBO_COLEMAK_RCTLALT]    = COMBO(nei_combo, LALT(KC_LCTL)),
     [COMBO_COLEMAK_RALTGUI]    = COMBO(neo_combo, LALT(KC_LGUI)),
     [COMBO_COLEMAK_RCTLALTGUI] = COMBO(neio_combo, LCA(KC_LGUI)),
-    [COMBO_COLEMAK_CTLSPC]      = COMBO(hcomma_combo, LCTL(KC_SPC)),
+    [COMBO_COLEMAK_CTLSPC]      = COMBO(commah_combo, LCTL(KC_SPC)),
 
     [COMBO_SYM_LCTL]           = COMBO(sym_fd_combo, KC_LCTL),
     [COMBO_SYM_LALT]           = COMBO(sym_fs_combo, KC_LALT),
