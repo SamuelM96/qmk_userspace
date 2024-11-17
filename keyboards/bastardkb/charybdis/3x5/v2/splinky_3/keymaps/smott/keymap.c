@@ -103,9 +103,11 @@ enum custom_keycodes {
 #define OSM_RALT OSM(MOD_RALT)
 #define OSM_RSFT OSM(MOD_RSFT)
 
-bool            pointer_key_held      = false;
-bool            mouse_jiggler_enabled = false;
-static uint16_t mouse_jiggler_timer;
+bool pointer_key_held      = false;
+bool mouse_jiggler_enabled = false;
+/* static uint16_t mouse_jiggler_timer; */
+uint32_t idle_timeout   = 30000; // (after 30s)
+uint32_t mouse_interval = 10000; // (every 10s)
 
 #define COMBO_SHOULD_TRIGGER
 enum combos {
@@ -298,7 +300,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_OTHER] = LAYOUT(
             QWERTY,     KC_NO,      KC_NO,      KC_NO,      KC_ESC,             RGB_VAI,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    RGB_M_P,
             QK_MAKE,    KC_NO,      KC_NO,      KC_NO,      KC_ENT,             RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
-            QK_BOOT,    QK_MAKE,    COLEMAK_DH, KC_NO,      KC_NO,              KC_NO,      RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
+            QK_BOOT,    QK_MAKE,    COLEMAK_DH, KC_NO,      KC_NO,              JIGGLE,     RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
                                     KC_NO,      KC_NO,      KC_NO,              KC_LCTL,    KC_LSFT),
 
 	[_POINTER] = LAYOUT(
@@ -327,18 +329,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 // clang-format on
 
-bool has_mouse_report_changed(report_mouse_t* new_report, report_mouse_t* old_report) {
-    // Only report every 5 seconds.
-    if (mouse_jiggler_enabled && timer_elapsed(mouse_jiggler_timer) > 5000) {
-        mouse_jiggler_timer = timer_read();
-        return mouse_jiggler_enabled;
+static uint32_t idle_callback(uint32_t trigger_time, void* cb_arg) {
+    // now idle
+    if (mouse_jiggler_enabled) {
+        SEND_STRING(SS_TAP(X_F15));
     }
-
-    return memcmp(new_report, old_report, sizeof(report_mouse_t));
+    return mouse_interval;
 }
 
+/* bool has_mouse_report_changed(report_mouse_t* new_report, report_mouse_t* old_report) { */
+/*     // Only report every 5 seconds. */
+/*     if (mouse_jiggler_enabled && timer_elapsed(mouse_jiggler_timer) > 5000) { */
+/*         mouse_jiggler_timer = timer_read(); */
+/*         return mouse_jiggler_enabled; */
+/*     } */
+/**/
+/*     return memcmp(new_report, old_report, sizeof(report_mouse_t)); */
+/* } */
+
 void mouse_jiggle_toggle(void) {
-    mouse_jiggler_timer   = timer_read();
+    /* mouse_jiggler_timer   = timer_read(); */
     mouse_jiggler_enabled = !mouse_jiggler_enabled;
 }
 
@@ -354,6 +364,13 @@ void disable_pointer_layer(void) {
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+    // on every key event start or extend `idle_callback()` deferred execution after IDLE_TIMEOUT_MS
+    static deferred_token idle_token = INVALID_DEFERRED_TOKEN;
+
+    if (!extend_deferred_exec(idle_token, idle_timeout)) {
+        idle_token = defer_exec(idle_timeout, idle_callback, NULL);
+    }
+
     // Proccess case modes
     if (!process_case_modes(keycode, record)) {
         return false;
