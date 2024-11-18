@@ -20,6 +20,7 @@ enum layers {
     _MEDIA,
     _OTHER,
     _WEB,
+    _MOUSE,
     _MACRO,
 };
 
@@ -85,6 +86,7 @@ enum combos {
     COMBO_QWERTY_LCTLALT,
     COMBO_QWERTY_LALTGUI,
     COMBO_QWERTY_LCTLALTGUI,
+    COMBO_QWERTY_MOUSE,
 
     COMBO_QWERTY_RCTL,
     COMBO_QWERTY_RALT,
@@ -100,6 +102,7 @@ enum combos {
     COMBO_COLEMAK_LCTLALT,
     COMBO_COLEMAK_LALTGUI,
     COMBO_COLEMAK_LCTLALTGUI,
+    COMBO_COLEMAK_MOUSE,
 
     COMBO_COLEMAK_RCTL,
     COMBO_COLEMAK_RALT,
@@ -133,6 +136,7 @@ const uint16_t PROGMEM fa_combo[]   = {KC_F, KC_A, COMBO_END};
 const uint16_t PROGMEM fds_combo[]  = {KC_F, KC_D, KC_S, COMBO_END};
 const uint16_t PROGMEM fda_combo[]  = {KC_F, KC_D, KC_A, COMBO_END};
 const uint16_t PROGMEM fdsa_combo[] = {KC_F, KC_D, KC_S, KC_A, COMBO_END};
+const uint16_t PROGMEM cv_combo[]   = {KC_C, KC_V, COMBO_END};
 
 const uint16_t PROGMEM jk_combo[]      = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM jl_combo[]      = {KC_J, KC_L, COMBO_END};
@@ -149,6 +153,7 @@ const uint16_t PROGMEM ta_combo[]   = {KC_T, KC_A, COMBO_END};
 const uint16_t PROGMEM tsr_combo[]  = {KC_T, KC_S, KC_R, COMBO_END};
 const uint16_t PROGMEM tsa_combo[]  = {KC_T, KC_S, KC_A, COMBO_END};
 const uint16_t PROGMEM tsra_combo[] = {KC_T, KC_S, KC_R, KC_A, COMBO_END};
+const uint16_t PROGMEM cd_combo[]   = {KC_C, KC_D, COMBO_END};
 
 const uint16_t PROGMEM ne_combo[]     = {KC_N, KC_E, COMBO_END};
 const uint16_t PROGMEM ni_combo[]     = {KC_N, KC_I, COMBO_END};
@@ -181,6 +186,7 @@ combo_t key_combos[] = {
     [COMBO_QWERTY_LCTLALT]     = COMBO(fds_combo, LALT(KC_LCTL)),
     [COMBO_QWERTY_LALTGUI]     = COMBO(fda_combo, LALT(KC_LGUI)),
     [COMBO_QWERTY_LCTLALTGUI]  = COMBO(fdsa_combo, LCA(KC_LGUI)),
+    [COMBO_QWERTY_MOUSE]      = COMBO(cv_combo, MO(_MOUSE)),
 
     [COMBO_QWERTY_RCTL]        = COMBO(jk_combo, KC_LCTL),
     [COMBO_QWERTY_RALT]        = COMBO(jl_combo, KC_LALT),
@@ -196,6 +202,7 @@ combo_t key_combos[] = {
     [COMBO_COLEMAK_LCTLALT]    = COMBO(tsr_combo, LALT(KC_LCTL)),
     [COMBO_COLEMAK_LALTGUI]    = COMBO(tsa_combo, LALT(KC_LGUI)),
     [COMBO_COLEMAK_LCTLALTGUI] = COMBO(tsra_combo, LCA(KC_LGUI)),
+    [COMBO_COLEMAK_MOUSE]      = COMBO(cd_combo, MO(_MOUSE)),
 
     [COMBO_COLEMAK_RCTL]       = COMBO(ne_combo, KC_LCTL),
     [COMBO_COLEMAK_RALT]       = COMBO(ni_combo, KC_LALT),
@@ -262,17 +269,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,              KC_BRID,    KC_MPRV,    KC_VOLD,    KC_VOLU,    KC_MNXT,
             KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,              KC_NO,      KC_MUTE,    KC_NO,      KC_NO,      KC_NO,
                                                 KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
+
 	[_OTHER] = LAYOUT(
             QWERTY,     KC_NO,      KC_NO,      KC_NO,      KC_ESC,             RGB_VAI,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    RGB_M_P,
             QK_MAKE,    KC_NO,      KC_NO,      KC_NO,      KC_ENT,             RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
-            QK_BOOT,    QK_MAKE,    COLEMAK_DH, KC_NO,      KC_NO,              JIGGLE,     RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
-                                                KC_NO,      KC_NO,              KC_LCTL,    KC_LSFT),
+            QK_BOOT,    KC_NO,      COLEMAK_DH, KC_NO,      KC_NO,              JIGGLE,     RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
+                                                KC_TRNS,    KC_TRNS,            KC_LCTL,    KC_LSFT),
 
     [_WEB] = LAYOUT(
            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,             KC_TRNS,    KC_WSCH,    KC_WREF,    KC_WSTP,    KC_TRNS,
                                                KC_TRNS,    KC_TRNS,             KC_WBAK,    KC_WFWD),
+
+    [_MOUSE] = LAYOUT(
+           KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+           KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    MS_LEFT,    MS_DOWN,    MS_UP,      MS_RGHT,
+           KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    MS_BTN3,    KC_TRNS,    KC_TRNS,
+                                               KC_TRNS,    KC_TRNS,            MS_BTN1,    MS_BTN2),
 
 	[_MACRO] = LAYOUT(
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
@@ -338,6 +352,8 @@ bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode
         case COMBO_QWERTY_LALTGUI:
         case COMBO_QWERTY_LCTLALT:
         case COMBO_QWERTY_LCTLALTGUI:
+        case COMBO_QWERTY_MOUSE:
+        case COMBO_QWERTY_CTLSPC:
         case COMBO_QWERTY_RALT:
         case COMBO_QWERTY_RGUI:
         case COMBO_QWERTY_RCTL:
@@ -352,6 +368,8 @@ bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode
         case COMBO_COLEMAK_LALTGUI:
         case COMBO_COLEMAK_LCTLALT:
         case COMBO_COLEMAK_LCTLALTGUI:
+        case COMBO_COLEMAK_MOUSE:
+        case COMBO_COLEMAK_CTLSPC:
         case COMBO_COLEMAK_RALT:
         case COMBO_COLEMAK_RGUI:
         case COMBO_COLEMAK_RCTL:
