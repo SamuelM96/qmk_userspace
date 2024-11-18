@@ -51,7 +51,7 @@
 #undef CHARYBDIS_AUTO_SNIPING_ON_LAYER
 
 // Pick good defaults for enabling homerow modifiers
-#define TAPPING_TERM 200
+#define TAPPING_TERM 175
 #define PERMISSIVE_HOLD
 #define QUICK_TAP_TERM 0
 
