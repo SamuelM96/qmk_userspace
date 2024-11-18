@@ -236,7 +236,7 @@ combo_t key_combos[] = {
     [COMBO_COLEMAK_RCTLALT]    = COMBO(nei_combo, LALT(KC_LCTL)),
     [COMBO_COLEMAK_RALTGUI]    = COMBO(neo_combo, LALT(KC_LGUI)),
     [COMBO_COLEMAK_RCTLALTGUI] = COMBO(neio_combo, LCA(KC_LGUI)),
-    [COMBO_COLEMAK_CTLSPC]      = COMBO(commah_combo, LCTL(KC_SPC)),
+    [COMBO_COLEMAK_CTLSPC]     = COMBO(commah_combo, LCTL(KC_SPC)),
 
     [COMBO_SYM_LCTL]           = COMBO(sym_fd_combo, KC_LCTL),
     [COMBO_SYM_LALT]           = COMBO(sym_fs_combo, KC_LALT),
@@ -456,6 +456,7 @@ bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode
         case COMBO_QWERTY_LALTGUI:
         case COMBO_QWERTY_LCTLALT:
         case COMBO_QWERTY_LCTLALTGUI:
+        case COMBO_QWERTY_CTLSPC:
         case COMBO_QWERTY_RALT:
         case COMBO_QWERTY_RGUI:
         case COMBO_QWERTY_RCTL:
@@ -470,6 +471,7 @@ bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode
         case COMBO_COLEMAK_LALTGUI:
         case COMBO_COLEMAK_LCTLALT:
         case COMBO_COLEMAK_LCTLALTGUI:
+        case COMBO_COLEMAK_CTLSPC:
         case COMBO_COLEMAK_RALT:
         case COMBO_COLEMAK_RGUI:
         case COMBO_COLEMAK_RCTL:
