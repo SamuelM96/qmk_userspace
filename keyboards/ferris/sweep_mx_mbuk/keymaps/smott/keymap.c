@@ -232,31 +232,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             UK_Q,       UK_W,       UK_E,       UK_R,       UK_T,               UK_Y,       UK_U,       UK_I,       UK_O,         UK_P,
             UK_A,       UK_S,       UK_D,       UK_F,       UK_G,               UK_H,       UK_J,       UK_K,       UK_L,         UK_SCLN,
             L_WEB(UK_Z),UK_X,       UK_C,       UK_V,       UK_B,               UK_N,       UK_M,       UK_COMM,    UK_DOT,  L_WEB(UK_SLSH),
-                                                NUM_ESC,    SPC_NAV,            KC_LSFT,    SYM),
+                                                SPC_NAV,    NUM_ESC,            SYM,    KC_LSFT),
 
     [_COLEMAK_DH] = LAYOUT(
             UK_Q,       UK_W,       UK_F,       UK_P,       UK_B,               UK_J,       UK_L,       UK_U,       UK_Y,         UK_SCLN,
             UK_A,       UK_R,       UK_S,       UK_T,       UK_G,               UK_M,       UK_N,       UK_E,       UK_I,         UK_O,
             L_WEB(UK_Z),UK_X,       UK_C,       UK_D,       UK_V,               UK_K,       UK_H,       UK_COMM,    UK_DOT,  L_WEB(UK_SLSH),
-                                                NUM_ESC,    SPC_NAV,            KC_LSFT,    SYM),
+                                                SPC_NAV,    NUM_ESC,            SYM,    KC_LSFT),
 
 	[_NAV] = LAYOUT(
             MACRO,      KC_TRNS,    QK_AREP,    QK_REP,     KC_ESC,             G(S(KC_PSCR)),KC_HOME,    KC_PGDN,    KC_PGUP,    KC_END,
             OSM_LGUI,   OSM_LALT,   OSM_LCTL,   OSM_LSFT,   KC_ENT,             KC_TAB,       KC_LEFT,    KC_DOWN,    KC_UP,      KC_RGHT,
             KC_CAPS,    OSM_RALT,   CW_TOGG,    SNAKECASE,  KC_SPC,             KC_DEL,       KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-                                                OTHER,      KC_TRNS,            KC_BSPC,      MEDIA),
+                                                KC_TRNS,    OTHER,              MEDIA,      KC_BSPC),
 
 	[_NUM] = LAYOUT(
             UK_LBRC,    UK_LABK,    UK_MINS,    UK_RABK,    UK_RBRC,            KC_LEFT,    KC_7,       KC_8,       KC_9,       KC_RIGHT,
             OSM_LGUI,   OSM_LALT,   OSM_LCTL,   OSM_LSFT,   UK_RCBR,            KC_DOWN,    KC_4,       KC_5,       KC_6,       KC_UP,
             UK_BSLS,    UK_ASTR,    UK_COLN,    UK_PLUS,    UK_UNDS,            UK_EQL,     KC_1,       KC_2,       KC_3,       UK_DOT,
-                                                KC_TRNS,    OTHER,              KC_BSPC,    UK_0),
+                                                OTHER,      KC_TRNS,            UK_0,       KC_BSPC),
 
 	[_SYM] = LAYOUT(
             UK_LBRC,    UK_LABK,    UK_MINS,    UK_RABK,    UK_RBRC,            UK_SCLN,    UK_CIRC,    UK_GRV,     UK_HASH,    UK_AT,
             UK_LCBR,    UK_LPRN,    UK_EQL,     UK_RPRN,    UK_RCBR,            UK_PERC,    UK_DLR,     UK_DQUO,    UK_QUOT,    UK_EXLM,
             UK_BSLS,    UK_ASTR,    UK_COLN,    UK_PLUS,    UK_UNDS,            UK_AMPR,    UK_TILD,    UK_QUES,    UK_PIPE,    UK_PND,
-                                                FKEYS,      ALT_SPC,            KC_BSPC,    KC_TRNS),
+                                                ALT_SPC,    FKEYS,              KC_TRNS,    KC_BSPC),
 
 	[_FUNCTION] = LAYOUT(
             KC_F13,     KC_F14,     KC_F15,     KC_F16,     KC_F17,             KC_F10,     KC_F7,      KC_F8,      KC_F9,      KC_PSCR,
