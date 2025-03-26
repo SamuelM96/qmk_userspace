@@ -12,7 +12,7 @@
 
 enum layers {
     _QWERTY = 0,
-    _COLEMAK_DH,
+    _FOCAL,
     _NAV,
     _NUM,
     _SYM,
@@ -39,7 +39,7 @@ enum custom_keycodes {
 
 // Aliases for readability
 #define QWERTY DF(_QWERTY)
-#define COLEMAK_DH DF(_COLEMAK_DH)
+#define FOCAL DF(_FOCAL)
 
 #define NAV MO(_NAV)
 #define NUM MO(_NUM)
@@ -57,7 +57,7 @@ enum custom_keycodes {
 #define CTL_MINS MT(MOD_RCTL, KC_MINUS)
 #define ALT_ENT MT(MOD_LALT, KC_ENT)
 #define ALT_SPC MT(MOD_LALT, KC_SPC)
-// TODO: Needs Colemak DH support. KC_TRNS didn't work
+// TODO: Needs Focal support. KC_TRNS didn't work
 #define SFT_TRNS MT(MOD_LSFT, KC_F)
 #define CTL_TRNS MT(MOD_LCTL, KC_D)
 #define ALT_TRNS MT(MOD_LALT, KC_S)
@@ -96,21 +96,21 @@ enum combos {
     COMBO_QWERTY_RCTLALTGUI,
     COMBO_QWERTY_CTLSPC,
 
-    COMBO_COLEMAK_LCTL,
-    COMBO_COLEMAK_LALT,
-    COMBO_COLEMAK_LGUI,
-    COMBO_COLEMAK_LCTLALT,
-    COMBO_COLEMAK_LALTGUI,
-    COMBO_COLEMAK_LCTLALTGUI,
-    COMBO_COLEMAK_MOUSE,
+    COMBO_FOCAL_LCTL,
+    COMBO_FOCAL_LALT,
+    COMBO_FOCAL_LGUI,
+    COMBO_FOCAL_LCTLALT,
+    COMBO_FOCAL_LALTGUI,
+    COMBO_FOCAL_LCTLALTGUI,
+    COMBO_FOCAL_MOUSE,
 
-    COMBO_COLEMAK_RCTL,
-    COMBO_COLEMAK_RALT,
-    COMBO_COLEMAK_RGUI,
-    COMBO_COLEMAK_RCTLALT,
-    COMBO_COLEMAK_RALTGUI,
-    COMBO_COLEMAK_RCTLALTGUI,
-    COMBO_COLEMAK_CTLSPC,
+    COMBO_FOCAL_RCTL,
+    COMBO_FOCAL_RALT,
+    COMBO_FOCAL_RGUI,
+    COMBO_FOCAL_RCTLALT,
+    COMBO_FOCAL_RALTGUI,
+    COMBO_FOCAL_RCTLALTGUI,
+    COMBO_FOCAL_CTLSPC,
 
     COMBO_SYM_LCTL,
     COMBO_SYM_LALT,
@@ -146,22 +146,22 @@ const uint16_t PROGMEM jkscln_combo[]  = {KC_J, KC_K, UK_SCLN, COMBO_END};
 const uint16_t PROGMEM jklscln_combo[] = {KC_J, KC_K, KC_L, UK_SCLN, COMBO_END};
 const uint16_t PROGMEM commam_combo[]  = {UK_COMM, KC_M, COMBO_END};
 
-// Colemak layer
-const uint16_t PROGMEM ts_combo[]   = {KC_T, KC_S, COMBO_END};
+// Focal layer
+const uint16_t PROGMEM tn_combo[]   = {KC_T, KC_N, COMBO_END};
 const uint16_t PROGMEM tr_combo[]   = {KC_T, KC_R, COMBO_END};
-const uint16_t PROGMEM ta_combo[]   = {KC_T, KC_A, COMBO_END};
-const uint16_t PROGMEM tsr_combo[]  = {KC_T, KC_S, KC_R, COMBO_END};
-const uint16_t PROGMEM tsa_combo[]  = {KC_T, KC_S, KC_A, COMBO_END};
-const uint16_t PROGMEM tsra_combo[] = {KC_T, KC_S, KC_R, KC_A, COMBO_END};
-const uint16_t PROGMEM cd_combo[]   = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM ts_combo[]   = {KC_T, KC_S, COMBO_END};
+const uint16_t PROGMEM tnr_combo[]  = {KC_T, KC_N, KC_S, COMBO_END};
+const uint16_t PROGMEM tns_combo[]  = {KC_T, KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM tnrs_combo[] = {KC_T, KC_N, KC_R, KC_S, COMBO_END};
+const uint16_t PROGMEM md_combo[]   = {KC_M, KC_D, COMBO_END};
 
-const uint16_t PROGMEM ne_combo[]     = {KC_N, KC_E, COMBO_END};
-const uint16_t PROGMEM ni_combo[]     = {KC_N, KC_I, COMBO_END};
-const uint16_t PROGMEM no_combo[]     = {KC_N, KC_O, COMBO_END};
-const uint16_t PROGMEM nei_combo[]    = {KC_N, KC_E, KC_I, COMBO_END};
-const uint16_t PROGMEM neo_combo[]    = {KC_N, KC_E, KC_O, COMBO_END};
-const uint16_t PROGMEM neio_combo[]   = {KC_N, KC_E, KC_I, KC_O, COMBO_END};
-const uint16_t PROGMEM commah_combo[] = {UK_COMM, KC_H, COMBO_END};
+const uint16_t PROGMEM ca_combo[]     = {KC_C, KC_A, COMBO_END};
+const uint16_t PROGMEM ce_combo[]     = {KC_C, KC_E, COMBO_END};
+const uint16_t PROGMEM ci_combo[]     = {KC_C, KC_I, COMBO_END};
+const uint16_t PROGMEM cae_combo[]    = {KC_C, KC_A, KC_E, COMBO_END};
+const uint16_t PROGMEM cai_combo[]    = {KC_C, KC_A, KC_I, COMBO_END};
+const uint16_t PROGMEM caei_combo[]   = {KC_C, KC_A, KC_E, KC_I, COMBO_END};
+const uint16_t PROGMEM wdot_combo[]   = {KC_W, UK_DOT, COMBO_END};
 
 // Symbol layer
 const uint16_t PROGMEM sym_fd_combo[]   = {UK_RPRN, UK_EQL, COMBO_END};
@@ -196,21 +196,21 @@ combo_t key_combos[] = {
     [COMBO_QWERTY_RCTLALTGUI]  = COMBO(jklscln_combo, LCA(KC_LGUI)),
     [COMBO_QWERTY_CTLSPC]      = COMBO(commam_combo, LCTL(KC_SPC)),
 
-    [COMBO_COLEMAK_LCTL]       = COMBO(ts_combo, KC_LCTL),
-    [COMBO_COLEMAK_LALT]       = COMBO(tr_combo, KC_LALT),
-    [COMBO_COLEMAK_LGUI]       = COMBO(ta_combo, KC_LGUI),
-    [COMBO_COLEMAK_LCTLALT]    = COMBO(tsr_combo, LALT(KC_LCTL)),
-    [COMBO_COLEMAK_LALTGUI]    = COMBO(tsa_combo, LALT(KC_LGUI)),
-    [COMBO_COLEMAK_LCTLALTGUI] = COMBO(tsra_combo, LCA(KC_LGUI)),
-    [COMBO_COLEMAK_MOUSE]      = COMBO(cd_combo, MO(_MOUSE)),
+    [COMBO_FOCAL_LCTL]       = COMBO(tn_combo, KC_LCTL),
+    [COMBO_FOCAL_LALT]       = COMBO(tr_combo, KC_LALT),
+    [COMBO_FOCAL_LGUI]       = COMBO(ts_combo, KC_LGUI),
+    [COMBO_FOCAL_LCTLALT]    = COMBO(tnr_combo, LALT(KC_LCTL)),
+    [COMBO_FOCAL_LALTGUI]    = COMBO(tns_combo, LALT(KC_LGUI)),
+    [COMBO_FOCAL_LCTLALTGUI] = COMBO(tnrs_combo, LCA(KC_LGUI)),
+    [COMBO_FOCAL_MOUSE]      = COMBO(md_combo, MO(_MOUSE)),
 
-    [COMBO_COLEMAK_RCTL]       = COMBO(ne_combo, KC_LCTL),
-    [COMBO_COLEMAK_RALT]       = COMBO(ni_combo, KC_LALT),
-    [COMBO_COLEMAK_RGUI]       = COMBO(no_combo, KC_LGUI),
-    [COMBO_COLEMAK_RCTLALT]    = COMBO(nei_combo, LALT(KC_LCTL)),
-    [COMBO_COLEMAK_RALTGUI]    = COMBO(neo_combo, LALT(KC_LGUI)),
-    [COMBO_COLEMAK_RCTLALTGUI] = COMBO(neio_combo, LCA(KC_LGUI)),
-    [COMBO_COLEMAK_CTLSPC]      = COMBO(commah_combo, LCTL(KC_SPC)),
+    [COMBO_FOCAL_RCTL]       = COMBO(ca_combo, KC_LCTL),
+    [COMBO_FOCAL_RALT]       = COMBO(ce_combo, KC_LALT),
+    [COMBO_FOCAL_RGUI]       = COMBO(ci_combo, KC_LGUI),
+    [COMBO_FOCAL_RCTLALT]    = COMBO(cae_combo, LALT(KC_LCTL)),
+    [COMBO_FOCAL_RALTGUI]    = COMBO(cai_combo, LALT(KC_LGUI)),
+    [COMBO_FOCAL_RCTLALTGUI] = COMBO(caei_combo, LCA(KC_LGUI)),
+    [COMBO_FOCAL_CTLSPC]      = COMBO(wdot_combo, LCTL(KC_SPC)),
 
     [COMBO_SYM_LCTL]           = COMBO(sym_fd_combo, KC_LCTL),
     [COMBO_SYM_LALT]           = COMBO(sym_fs_combo, KC_LALT),
@@ -234,10 +234,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             L_WEB(UK_Z),UK_X,       UK_C,       UK_V,       UK_B,               UK_N,       UK_M,       UK_COMM,    UK_DOT,  L_WEB(UK_SLSH),
                                                 SPC_NAV,    NUM_ESC,            SYM,    KC_LSFT),
 
-    [_COLEMAK_DH] = LAYOUT(
-            UK_Q,       UK_W,       UK_F,       UK_P,       UK_B,               UK_J,       UK_L,       UK_U,       UK_Y,         UK_SCLN,
-            UK_A,       UK_R,       UK_S,       UK_T,       UK_G,               UK_M,       UK_N,       UK_E,       UK_I,         UK_O,
-            L_WEB(UK_Z),UK_X,       UK_C,       UK_D,       UK_V,               UK_K,       UK_H,       UK_COMM,    UK_DOT,  L_WEB(UK_SLSH),
+    [_FOCAL] = LAYOUT(
+            UK_V,       UK_L,       UK_H,       UK_G,       UK_K,               UK_Q,       UK_F,       UK_O,       UK_U,         UK_J,
+            UK_S,       UK_R,       UK_N,       UK_T,       UK_B,               UK_Y,       UK_C,       UK_A,       UK_E,         UK_I,
+            L_WEB(UK_Z),UK_X,       UK_M,       UK_D,       UK_P,               UK_QUOT,    UK_W,       UK_DOT,     UK_SCLN,      L_WEB(UK_COMM),
                                                 SPC_NAV,    NUM_ESC,            SYM,    KC_LSFT),
 
 	[_NAV] = LAYOUT(
@@ -253,7 +253,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                 OTHER,      KC_TRNS,            UK_0,       KC_BSPC),
 
 	[_SYM] = LAYOUT(
-            UK_LBRC,    UK_LABK,    UK_MINS,    UK_RABK,    UK_RBRC,            UK_SCLN,    UK_CIRC,    UK_GRV,     UK_HASH,    UK_AT,
+            UK_LBRC,    UK_LABK,    UK_MINS,    UK_RABK,    UK_RBRC,            UK_CIRC,    UK_SLSH,    UK_GRV,     UK_HASH,    UK_AT,
             UK_LCBR,    UK_LPRN,    UK_EQL,     UK_RPRN,    UK_RCBR,            UK_PERC,    UK_DLR,     UK_DQUO,    UK_QUOT,    UK_EXLM,
             UK_BSLS,    UK_ASTR,    UK_COLN,    UK_PLUS,    UK_UNDS,            UK_AMPR,    UK_TILD,    UK_QUES,    UK_PIPE,    UK_PND,
                                                 ALT_SPC,    FKEYS,              KC_TRNS,    KC_BSPC),
@@ -273,7 +273,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_OTHER] = LAYOUT(
             QWERTY,     KC_NO,      KC_NO,      KC_NO,      KC_ESC,             RGB_VAI,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    RGB_M_P,
             QK_MAKE,    KC_NO,      KC_NO,      KC_NO,      KC_ENT,             RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
-            QK_BOOT,    KC_NO,      COLEMAK_DH, KC_NO,      KC_NO,              JIGGLE,     RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
+            QK_BOOT,    KC_NO,      FOCAL, KC_NO,      KC_NO,              JIGGLE,     RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
                                                 KC_TRNS,    KC_TRNS,            KC_LCTL,    KC_LSFT),
 
     [_WEB] = LAYOUT(
@@ -360,22 +360,22 @@ bool combo_should_trigger(uint16_t combo_index, combo_t* combo, uint16_t keycode
         case COMBO_QWERTY_RALTGUI:
         case COMBO_QWERTY_RCTLALT:
         case COMBO_QWERTY_RCTLALTGUI: {
-            return !layer_state_is(_COLEMAK_DH);
+            return !layer_state_is(_FOCAL);
         }
-        case COMBO_COLEMAK_LALT:
-        case COMBO_COLEMAK_LGUI:
-        case COMBO_COLEMAK_LCTL:
-        case COMBO_COLEMAK_LALTGUI:
-        case COMBO_COLEMAK_LCTLALT:
-        case COMBO_COLEMAK_LCTLALTGUI:
-        case COMBO_COLEMAK_MOUSE:
-        case COMBO_COLEMAK_CTLSPC:
-        case COMBO_COLEMAK_RALT:
-        case COMBO_COLEMAK_RGUI:
-        case COMBO_COLEMAK_RCTL:
-        case COMBO_COLEMAK_RALTGUI:
-        case COMBO_COLEMAK_RCTLALT:
-        case COMBO_COLEMAK_RCTLALTGUI: {
+        case COMBO_FOCAL_LALT:
+        case COMBO_FOCAL_LGUI:
+        case COMBO_FOCAL_LCTL:
+        case COMBO_FOCAL_LALTGUI:
+        case COMBO_FOCAL_LCTLALT:
+        case COMBO_FOCAL_LCTLALTGUI:
+        case COMBO_FOCAL_MOUSE:
+        case COMBO_FOCAL_CTLSPC:
+        case COMBO_FOCAL_RALT:
+        case COMBO_FOCAL_RGUI:
+        case COMBO_FOCAL_RCTL:
+        case COMBO_FOCAL_RALTGUI:
+        case COMBO_FOCAL_RCTLALT:
+        case COMBO_FOCAL_RCTLALTGUI: {
             return !layer_state_is(_QWERTY);
         }
     }
