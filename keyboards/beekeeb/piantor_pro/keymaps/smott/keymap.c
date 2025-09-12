@@ -46,7 +46,7 @@ enum layers
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
+      KC_LALT,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
       KC_LSFT,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
       KC_LCTL,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  KC_ESC,
                                           KC_LCTL, SPC_NAV, NUM_ESC,        SYM, KC_LSFT, KC_LALT
@@ -63,14 +63,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_TRNS, UK_LBRC,  UK_LABK,  UK_MINS,  UK_RABK,  UK_RBRC,                    TMUX_LDR,   KC_7, KC_8, KC_9, KC_UP,   KC_TRNS,
       KC_TRNS, OSM_LGUI, OSM_LALT, OSM_LCTL, OSM_LSFT, UK_RCBR,                    KC_SLSH,    KC_4, KC_5, KC_6, KC_DOWN, KC_TRNS,
       KC_TRNS, UK_BSLS,  UK_ASTR,  UK_COLN,  UK_PLUS,  UK_UNDS,                       KC_X,    KC_1, KC_2, KC_3, UK_DOT,  GAME,
-                                             KC_TRNS,  OTHER, KC_TRNS,       KC_0, KC_BSPC, KC_TRNS
+                                             KC_TRNS,  OTHER, KC_TRNS,       KC_0, KC_BSPC,    KC_ENT
   ),
 
     [_SYM] = LAYOUT(
       KC_TRNS, UK_LBRC, UK_LABK, UK_MINS, UK_RABK, UK_RBRC,                        UK_CIRC, UK_SLSH, UK_GRV,  UK_HASH, UK_AT,   KC_TRNS,
       KC_TRNS, UK_LCBR, UK_LPRN, UK_EQL,  UK_RPRN, UK_RCBR,                        UK_PERC, UK_DLR,  UK_DQUO, UK_QUOT, UK_EXLM, KC_TRNS,
       KC_TRNS, UK_BSLS, UK_ASTR, UK_COLN, UK_PLUS, UK_UNDS,                        UK_AMPR, UK_TILD, UK_QUES, UK_PIPE, UK_PND,  KC_TRNS,
-                                          KC_TRNS, KC_TRNS, FUNC,            KC_TRNS,KC_BSPC, KC_TRNS
+                                          KC_TRNS, KC_TRNS, FUNC,          KC_TRNS,KC_BSPC, KC_ENT
   ),
 
     [_FUNC] = LAYOUT(
