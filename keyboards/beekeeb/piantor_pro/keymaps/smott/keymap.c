@@ -55,12 +55,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_NAV] = LAYOUT(
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, KC_ESC,                     KC_TRNS, KC_HOME, KC_PGDN, KC_PGUP,   KC_END, KC_TRNS,
       KC_TRNS, OSM_LGUI, OSM_LALT, OSM_LSFT, OSM_LCTL, KC_ENT,                     KC_TAB,  KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, KC_TRNS,
-      KC_TRNS,  KC_CAPS,  KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS,                    KC_DEL,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
+      KC_TRNS,  KC_CAPS,  KC_TRNS,  KC_TRNS,  KC_HYPR, KC_TRNS,                    KC_DEL,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
                                                 OTHER, KC_TRNS,  KC_SPC,      MEDIA, KC_BSPC, KC_TRNS
   ),
 
     [_NUM] = LAYOUT(
-      KC_TRNS, UK_LBRC,  UK_LABK,  UK_MINS,  UK_RABK,  UK_RBRC,                    TMUX_LDR,   KC_7, KC_8, KC_9, KC_UP,   KC_TRNS,
+      KC_TRNS, UK_LBRC,  UK_LABK,  UK_MINS,  UK_RABK,  UK_RBRC,                    TMUX_LDR,   KC_7, KC_8, KC_9, KC_UP,   TMUX_LDR,
       KC_TRNS, OSM_LGUI, OSM_LALT, OSM_LCTL, OSM_LSFT, UK_RCBR,                    KC_SLSH,    KC_4, KC_5, KC_6, KC_DOWN, KC_TRNS,
       KC_TRNS, UK_BSLS,  UK_ASTR,  UK_COLN,  UK_PLUS,  UK_UNDS,                       KC_X,    KC_1, KC_2, KC_3, UK_DOT,  GAME,
                                              KC_TRNS,  OTHER, KC_TRNS,       KC_0, KC_BSPC,    KC_ENT
