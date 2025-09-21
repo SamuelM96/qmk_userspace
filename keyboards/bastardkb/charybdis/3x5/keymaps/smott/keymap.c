@@ -298,15 +298,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,              KC_NO,      KC_MUTE,    KC_NO,      KC_NO,      KC_NO,
                                     KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 	[_OTHER] = LAYOUT(
-            QWERTY,     KC_NO,      KC_NO,      KC_NO,      KC_ESC,             RGB_VAI,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    RGB_M_P,
-            QK_MAKE,    KC_NO,      KC_NO,      KC_NO,      KC_ENT,             RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
-            QK_BOOT,    QK_MAKE,    COLEMAK_DH, KC_NO,      KC_NO,              JIGGLE,     RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
+            QWERTY,     KC_NO,      KC_NO,      KC_NO,      KC_ESC,             RM_VALU,    RM_PREV,   RM_TOGG,   RM_NEXT,   KC_NO,
+            QK_MAKE,    KC_NO,      KC_NO,      KC_NO,      KC_ENT,             RM_VALD,    RM_SPDU,   RM_HUEU,   RM_SATU,   KC_NO,
+            QK_BOOT,    QK_MAKE,    COLEMAK_DH, KC_NO,      KC_NO,              JIGGLE,     RM_SPDD,   RM_HUED,   RM_SATD,   KC_NO,
                                     KC_NO,      KC_NO,      KC_NO,              KC_LCTL,    KC_LSFT),
 
 	[_POINTER] = LAYOUT(
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
-            GUI_TRNS,   ALT_TRNS,   CTL_TRNS,   SFT_TRNS,   KC_TRNS,            KC_TRNS,    KC_TRNS,    KC_BTN3,    KC_TRNS,    KC_TRNS,
-            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_BTN1,    KC_BTN2,    DRGSCRL,    KC_TRNS,
+            GUI_TRNS,   ALT_TRNS,   CTL_TRNS,   SFT_TRNS,   KC_TRNS,            KC_TRNS,    KC_TRNS,    MS_BTN3,    KC_TRNS,    KC_TRNS,
+            KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,            KC_TRNS,    MS_BTN1,    MS_BTN2,    DRGSCRL,    KC_TRNS,
                                     KC_LCTL,    KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 
      [_WEB] = LAYOUT(
