@@ -271,9 +271,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                 KC_TRNS,    KC_TRNS,            KC_TRNS,    KC_TRNS),
 
 	[_OTHER] = LAYOUT(
-            QWERTY,     KC_NO,      KC_NO,      KC_NO,      KC_ESC,             RGB_VAI,    RGB_RMOD,   RGB_TOG,    RGB_MOD,    RGB_M_P,
-            QK_MAKE,    KC_NO,      KC_NO,      KC_NO,      KC_ENT,             RGB_VAD,    RGB_SPI,    RGB_HUI,    RGB_SAI,    RGB_M_B,
-            QK_BOOT,    KC_NO,      FOCAL, KC_NO,      KC_NO,              JIGGLE,     RGB_SPD,    RGB_HUD,    RGB_SAD,    RGB_M_SW,
+            QWERTY,     KC_NO,      KC_NO,      KC_NO,      KC_ESC,             KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,
+            QK_MAKE,    KC_NO,      KC_NO,      KC_NO,      KC_ENT,             KC_NO,    KC_NO,   KC_NO,   KC_NO,   KC_NO,
+            QK_BOOT,    KC_NO,      FOCAL,      KC_NO,      KC_NO,              JIGGLE,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
                                                 KC_TRNS,    KC_TRNS,            KC_LCTL,    KC_LSFT),
 
     [_WEB] = LAYOUT(
