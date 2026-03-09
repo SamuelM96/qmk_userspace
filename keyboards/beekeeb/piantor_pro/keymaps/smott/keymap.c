@@ -54,8 +54,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NAV] = LAYOUT(
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, KC_ESC,                     KC_TRNS, KC_HOME, KC_PGDN, KC_PGUP,   KC_END, KC_TRNS,
-      KC_TRNS, OSM_LGUI, OSM_LALT, OSM_LSFT, OSM_LCTL, KC_ENT,                     KC_TAB,  KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, TMUX_LDR,
-      KC_TRNS,  KC_CAPS,  KC_TRNS,  KC_TRNS, C(KC_SPC),KC_TRNS,                    KC_DEL,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
+      KC_TRNS, OSM_LGUI, OSM_LALT, OSM_LSFT, OSM_LCTL, KC_ENT,                     KC_TAB,  KC_LEFT, KC_DOWN, KC_UP,    KC_RIGHT,TMUX_LDR,
+      KC_TRNS,  KC_CAPS,  KC_TRNS,  KC_TRNS, C(KC_SPC),KC_SPC,                     KC_DEL,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,
                                                 OTHER, KC_TRNS,  KC_SPC,      MEDIA, KC_BSPC, KC_TRNS
   ),
 
