@@ -12,7 +12,7 @@
 
 #define TAPPING_TERM 175
 #define PERMISSIVE_HOLD
-#define QUICK_TAP_TERM 120
+#define QUICK_TAP_TERM 0
 
 #define COMBO_TERM 40
 #define COMBO_MUST_HOLD_MODS
