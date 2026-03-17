@@ -32,6 +32,9 @@ enum custom_keycodes {
 #define GAME   DF(_GAME)
 #define GAME2  MO(_GAME2)
 
+#define ONUM OSL(_NUM)
+#define OSYM OSL(_SYM)
+
 #define SPC_NAV LT(_NAV, KC_SPC)
 #define NUM_ESC LT(_NUM, KC_ESC)
 #define FUN_BSP LT(_FUNC, KC_BSPC)
@@ -44,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_LGUI,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,   KC_LALT,
       KC_LCTL,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_SCLN,  KC_QUOT,
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  OS_LCA,
-                                          OS_LCTL, SPC_NAV, NUM_ESC,       SYM,  OS_LSFT, OS_LALT
+                                          OS_LCTL, SPC_NAV, NUM_ESC,       OSYM, OS_LSFT, OS_LALT
   ),
 
     [_NAV] = LAYOUT(
@@ -63,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_SYM] = LAYOUT(
       OS_LGUI, UK_LBRC, UK_LABK, UK_MINS, UK_RABK, UK_RBRC,                        UK_SLSH, UK_CIRC, UK_GRV,  UK_HASH, UK_AT,   OS_LALT,
-      OS_LCTL, UK_LCBR, UK_LPRN, UK_EQL,  UK_RPRN, UK_RCBR,                        UK_PERC, UK_DLR,  UK_DQUO, UK_QUOT, UK_EXLM, KC_TRNS,
+      OS_LCTL, UK_LCBR, UK_LPRN, UK_EQL,  UK_RPRN, UK_RCBR,                        UK_PERC, UK_DLR,  UK_DQUO, UK_QUOT, UK_EXLM, C(KC_X),
       OS_LSFT, UK_BSLS, UK_ASTR, UK_COLN, UK_PLUS, UK_UNDS,                        UK_AMPR, UK_TILD, UK_QUES, UK_PIPE, UK_PND,  KC_TRNS,
                                           KC_TRNS, LALT_T(KC_SPC), FUN_BSP,KC_TRNS,KC_BSPC, KC_TRNS
   ),
