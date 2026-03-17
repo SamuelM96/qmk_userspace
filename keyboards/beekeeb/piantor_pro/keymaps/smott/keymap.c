@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
     [_SYM] = LAYOUT(
-      OS_LGUI, UK_LBRC, UK_LABK, UK_MINS, UK_RABK, UK_RBRC,                        UK_CIRC, UK_SLSH, UK_GRV,  UK_HASH, UK_AT,   OS_LALT,
+      OS_LGUI, UK_LBRC, UK_LABK, UK_MINS, UK_RABK, UK_RBRC,                        UK_SLSH, UK_CIRC, UK_GRV,  UK_HASH, UK_AT,   OS_LALT,
       OS_LCTL, UK_LCBR, UK_LPRN, UK_EQL,  UK_RPRN, UK_RCBR,                        UK_PERC, UK_DLR,  UK_DQUO, UK_QUOT, UK_EXLM, KC_TRNS,
       OS_LSFT, UK_BSLS, UK_ASTR, UK_COLN, UK_PLUS, UK_UNDS,                        UK_AMPR, UK_TILD, UK_QUES, UK_PIPE, UK_PND,  KC_TRNS,
                                           KC_TRNS, LALT_T(KC_SPC), FUN_BSP,KC_TRNS,KC_BSPC, KC_TRNS
